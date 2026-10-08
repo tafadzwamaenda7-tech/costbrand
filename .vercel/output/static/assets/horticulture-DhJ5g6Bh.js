@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-Dk72oS4N.js";import{o as t}from"./site-sections-CIDb1b1L.js";var n=e(),r=()=>(0,n.jsx)(`main`,{children:(0,n.jsx)(t,{})});export{r as component};

@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-CuH7Svrh.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BtMEB_6p.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/__root.tsx",
@@ -22,42 +22,42 @@ var tsrStartManifest = () => ({ routes: {
 			"/terms",
 			"/terms-and-conditions"
 		],
-		preloads: ["/assets/index-ArXSGvmI.js", "/assets/jsx-runtime-Dk72oS4N.js"],
+		preloads: ["/assets/index-6lZDekTy.js", "/assets/jsx-runtime-Dk72oS4N.js"],
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-ArXSGvmI.js"
+			src: "/assets/index-6lZDekTy.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/index.tsx",
 		children: void 0,
-		preloads: ["/assets/routes-DDvZGePg.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/routes-B4kFcd2d.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/404": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/404.tsx",
 		children: void 0,
-		preloads: ["/assets/404-CoENs4AD.js"]
+		preloads: ["/assets/404-BG_PhfTZ.js"]
 	},
 	"/about": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/about.tsx",
 		children: void 0,
-		preloads: ["/assets/about-Ex4X2g9_.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/about-wK-PP9LH.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/about-us": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/about-us.tsx",
 		children: void 0,
-		preloads: ["/assets/about-us-AHJb9eF3.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/about-us-CNVXga7y.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/agriculture": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/agriculture.tsx",
 		children: void 0,
-		preloads: ["/assets/agriculture-SnXq5g4O.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/agriculture-BKWEBqrr.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/contact-us": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/contact-us.tsx",
 		children: void 0,
-		preloads: ["/assets/contact-us-CJ-mvFGj.js", "/assets/contact.functions-Cv8a_H_8.js"]
+		preloads: ["/assets/contact-us-BoEa7uf8.js", "/assets/contact.functions-Bbfo8zZo.js"]
 	},
 	"/cookie-policy": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/cookie-policy.tsx",
@@ -67,27 +67,27 @@ var tsrStartManifest = () => ({ routes: {
 	"/global-market-reach": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/global-market-reach.tsx",
 		children: void 0,
-		preloads: ["/assets/global-market-reach-CHBy73sH.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/global-market-reach-C5SQXwwf.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/horticulture": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/horticulture.tsx",
 		children: void 0,
-		preloads: ["/assets/horticulture-DhJ5g6Bh.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/horticulture-BvFSfOsL.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/international-sourcing": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/international-sourcing.tsx",
 		children: void 0,
-		preloads: ["/assets/international-sourcing-DfD2Uugq.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/international-sourcing-DNPM32pD.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/machinery": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/machinery.tsx",
 		children: void 0,
-		preloads: ["/assets/machinery-C61jcecD.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/machinery-C4BRoNZI.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/our-products": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/our-products.tsx",
 		children: void 0,
-		preloads: ["/assets/our-products-CWGzLI3P.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/our-products-Lhde1uej.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/privacy": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/privacy.tsx",
@@ -102,12 +102,12 @@ var tsrStartManifest = () => ({ routes: {
 	"/production-and-global-sourcing": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/production-and-global-sourcing.tsx",
 		children: void 0,
-		preloads: ["/assets/production-and-global-sourcing-AbqbOCt5.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/production-and-global-sourcing-ghWTxICY.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/projects": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/projects.tsx",
 		children: void 0,
-		preloads: ["/assets/projects-CsGF_YMr.js", "/assets/site-sections-CIDb1b1L.js"]
+		preloads: ["/assets/projects-nfPFOS0a.js", "/assets/site-sections-C9Sy-gzB.js"]
 	},
 	"/terms": {
 		filePath: "C:/Users/tafadzwa/genesis-twin-clone/src/routes/terms.tsx",

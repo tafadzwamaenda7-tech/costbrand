@@ -4,10 +4,10 @@ import { n as require_jsx_runtime, t as QueryClientProvider } from "../_libs/rea
 import { _ as lazyRouteComponent, d as Scripts, f as HeadContent, g as Outlet, h as createRouter, p as useLocation, v as createFileRoute, x as useRouter, y as createRootRouteWithContext } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as SiteFooter, i as NotFoundPage, n as ContactBlock, o as SiteHeader, r as FloatingWhatsApp, t as BackToTop } from "./site-shell-CHEmpMYt.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-RkuioWTY.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-C860Wgjj.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-BZUbbaE4.css";
+var styles_default = "/assets/styles-Dwj6FxDs.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -274,7 +274,7 @@ function siteMeta(title, description) {
 		}
 	] };
 }
-var $$splitComponentImporter$17 = () => import("./routes-C94RUet4.mjs");
+var $$splitComponentImporter$17 = () => import("./routes-kXaV7Qlg.mjs");
 var Route$17 = createFileRoute("/")({
 	head: () => siteMeta("From Farm to Market. From Zimbabwe to the World.", "Costbrand is a Zimbabwean agricultural company bringing together agriculture, horticulture, machinery and international sourcing."),
 	component: lazyRouteComponent($$splitComponentImporter$17, "component")
