@@ -1,24 +1,64 @@
-import logo from "@/assets/genesis-exotics-logo.png.asset.json";
-import hero from "@/assets/sugar_snap_peas_with_blue_flower-1-1024x971.jpg.asset.json";
-import snapPeas from "@/assets/Untcceitled-1c.png.asset.json";
-import packing from "@/assets/WhatsApp-Image-2026-01-31-at-21.10.51-1-768x1024.jpeg.asset.json";
-import boxedPeas from "@/assets/sugar_snap_peas_in_box_horizontal.jpeg.asset.json";
-import globalSourcing from "@/assets/global_sourcing1-1024x1024.png.asset.json";
-import quality from "@/assets/certified_quality-1024x1024.png.asset.json";
-import sustainability from "@/assets/sustainability-1024x1024.png.asset.json";
-import logistics from "@/assets/reliable_logistics-1024x1024.png.asset.json";
-import mangetout from "@/assets/sugar_snap_peas_in_box.jpeg.asset.json";
-import beans from "@/assets/Untc3ceitled-1c.png.asset.json";
-import chillies from "@/assets/chillies.png.asset.json";
-import babyVegetables from "@/assets/WhatsApp-Image-2026-04-30-at-17.09.47.jpeg.asset.json";
-import passionFruit from "@/assets/passionfruit.jpeg.asset.json";
-import countries from "@/assets/countries.png.asset.json";
-import farm from "@/assets/peas_growing-768x1024.jpeg.asset.json";
-import regionHeading from "@/assets/our_sourcing_regions1-1024x170.png.asset.json";
-import regions from "@/assets/sourcing_regions_new.png.asset.json";
-import markets from "@/assets/key_markets-1024x512.png.asset.json";
-import supply from "@/assets/reliable_supply.png.asset.json";
-import serve from "@/assets/ChatGPT-Image-Jun-19-2026-10_50_32-AM-1024x857.png.asset.json";
-import future from "@/assets/lets_build_a_sustainable_future_together-1024x512.png.asset.json";
-import footerLogo from "@/assets/logos3.png.asset.json";
-export const assets = { logo: logo.url, hero: hero.url, snapPeas: snapPeas.url, packing: packing.url, boxedPeas: boxedPeas.url, globalSourcing: globalSourcing.url, quality: quality.url, sustainability: sustainability.url, logistics: logistics.url, mangetout: mangetout.url, beans: beans.url, chillies: chillies.url, babyVegetables: babyVegetables.url, passionFruit: passionFruit.url, countries: countries.url, farm: farm.url, regionHeading: regionHeading.url, regions: regions.url, markets: markets.url, supply: supply.url, serve: serve.url, future: future.url, footerLogo: footerLogo.url };
+const fieldRows = "/WhatsApp%20Image%202026-10-07%20at%2016.19.32.jpeg";
+const machineField = "/WhatsApp%20Image%202026-10-07%20at%2016.20.51.jpeg";
+const fieldSunset = "/WhatsApp%20Image%202026-10-07%20at%2016.21.19.jpeg";
+const peaHarvest = "/WhatsApp%20Image%202026-10-07%20at%2016.22.54.jpeg";
+const fieldWide = "/WhatsApp%20Image%202026-10-07%20at%2016.19.24.jpeg";
+const downloadNine = "/download%20(9).jpg";
+const horticultureHero = "/peas_growing-768x1024.jpeg";
+const aboutUs = "/WhatsApp%20Image%202026-10-07%20at%2016.23.57.jpeg";
+const machineryHero = "/download%20(9).jpg";
+const internationalSourcing = "/sugar_snap_peas_with_blue_flower-1-300x284.jpg";
+const avocado = "/Fresh%20from%20the%20farm%20%20Ovacado.jpg";
+const tomato = "/download%20(10).jpg";
+const watermelon = "/download%20(11).jpg";
+const chilli = "/chillies-768x411.png";
+const broccoli = "/How%20to%20Plant%20and%20Grow%20Broccoli%20_%20Gardener%E2%80%99s%20Path.jpg";
+const carrot = "/carrot%20carrots%20carrot%20cake%20recipe%20carrote%20carrot%20cake%20carrot%20cake%20recipes%20carrot%20cake%20rezept%20color.jpg";
+const pepper = "/One%20Month%20Before%20Harvesting%20Peppers%20Do%20This%20To%20Boost%20Flavor%20And%20Heat.jpg";
+const plotPackedLabelled = "/WhatsApp%20Image%202026-10-07%20at%2016.19.24.jpeg";
+const plotPreparedExport = "/WhatsApp-Image-2026-04-30-at-17.09.47.jpeg";
+
+export const assets = {
+  logo: "/genesis-logo.png",
+  hero: peaHarvest,
+  snapPeas: peaHarvest,
+  packing: machineField,
+  boxedPeas: machineField,
+  globalSourcing: internationalSourcing,
+  quality: fieldRows,
+  sustainability: fieldSunset,
+  logistics: machineField,
+  mangetout: peaHarvest,
+  beans: peaHarvest,
+  chillies: chilli,
+  babyVegetables: fieldRows,
+  passionFruit: fieldSunset,
+  countries: fieldRows,
+  farm: fieldRows,
+  regionHeading: fieldWide,
+  regions: fieldRows,
+  markets: fieldSunset,
+  supply: machineField,
+  serve: fieldWide,
+  future: fieldSunset,
+  footerLogo: "/genesis-logo.png",
+  horticultureHero,
+  aboutUs,
+  machineryHero,
+  internationalSourcing,
+  avocado,
+  tomato,
+  watermelon,
+  chilli,
+  broccoli,
+  carrot,
+  pepper,
+  plotPackedLabelled,
+  plotPreparedExport,
+  downloadNine,
+  fieldWide,
+  fieldRows,
+  machineField,
+  fieldSunset,
+  peaHarvest,
+};

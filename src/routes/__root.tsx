@@ -1,39 +1,28 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
   Scripts,
+  useLocation,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SiteHeader, SiteFooter, BackToTop } from "@/components/site-shell";
+import {
+  SiteHeader,
+  SiteFooter,
+  ContactBlock,
+  FloatingWhatsApp,
+  BackToTop,
+  NotFoundPage,
+} from "@/components/site-shell";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  return <NotFoundPage />;
 }
 
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
@@ -58,13 +47,13 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
           </a>
@@ -79,11 +68,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Genesis Exotics" },
-      { name: "description", content: "Premium-quality fresh produce, global sourcing and sustainable partnerships." },
-      { name: "author", content: "Genesis Exotics" },
-      { property: "og:title", content: "Genesis Exotics" },
-      { property: "og:description", content: "Premium-quality fresh produce, global sourcing and sustainable partnerships." },
+      { title: "Costbrand Private Limited" },
+      {
+        name: "description",
+        content:
+          "Costbrand Private Limited is a Zimbabwean agricultural company working across agriculture, horticulture, machinery and international sourcing.",
+      },
+      { name: "author", content: "Costbrand Private Limited" },
+      { property: "og:title", content: "Costbrand Private Limited" },
+      {
+        property: "og:description",
+        content:
+          "Costbrand Private Limited is a Zimbabwean agricultural company working across agriculture, horticulture, machinery and international sourcing.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -92,8 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap" },
+      { rel: "icon", href: "/genesis-logo.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -108,7 +104,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body data-scroll>
         {children}
         <Scripts />
       </body>
@@ -118,13 +114,124 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const targets: HTMLElement[] = [];
+    let observer: IntersectionObserver | undefined;
+    let frame: number | undefined;
+    let scheduleVisibilityCheck: (() => void) | undefined;
+    const timer = window.setTimeout(() => {
+      const main = document.querySelector<HTMLElement>(".site-content main");
+      if (!main) return;
+
+      targets.push(
+        ...main.querySelectorAll<HTMLElement>(
+          [
+            ".home-hero-content",
+            ".page-intro-copy",
+            ".page-intro-image",
+            ".display-heading",
+            ".section-eyebrow",
+            ".section-lead",
+            ".pillar-card",
+            ".about-why-card",
+            ".focus-area-card",
+            ".connection-card",
+            ".home-crop-tile",
+            ".agriculture-focus-row",
+            ".service-item",
+            ".machinery-product-list > li",
+            ".horticulture-market-cards > article",
+            ".market-list > article",
+            ".sourcing-stepper > li",
+            ".process-list > li",
+            ".journey-list > li",
+            ".plot68-gallery > figure",
+            ".plot68-stats > div",
+            ".horticulture-intro > p",
+            ".agriculture-intro > h2",
+            ".machinery-intro > h2",
+            ".about-vision h2",
+            ".about-mission h2",
+            ".sourcing-trust > *",
+            ".policy-page > h1",
+            ".policy-page > h2",
+            ".contact-brand",
+            ".contact-form-content",
+            ".not-found-inner",
+          ].join(","),
+        ),
+      );
+      if (!targets.length) return;
+
+      const reveal = (target: Element) => {
+        target.classList.add("in-view");
+        observer?.unobserve(target);
+      };
+      if (typeof window.IntersectionObserver === "function") {
+        observer = new window.IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) reveal(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -4% 0px" },
+        );
+      }
+
+      targets.forEach((target) => {
+        const siblings = target.parentElement ? Array.from(target.parentElement.children) : [];
+        const siblingIndex = Math.max(0, siblings.indexOf(target));
+        target.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 4) * 55}ms`);
+        target.classList.add("reveal");
+        observer?.observe(target);
+      });
+
+      const revealVisibleTargets = () => {
+        frame = undefined;
+        const threshold = window.innerHeight * 0.96;
+        targets.forEach((target) => {
+          if (target.classList.contains("in-view")) return;
+          const rect = target.getBoundingClientRect();
+          if (rect.top < threshold && rect.bottom > 0) reveal(target);
+        });
+      };
+      scheduleVisibilityCheck = () => {
+        if (frame !== undefined) return;
+        frame = window.requestAnimationFrame(revealVisibleTargets);
+      };
+      window.addEventListener("scroll", scheduleVisibilityCheck, { passive: true });
+      window.addEventListener("resize", scheduleVisibilityCheck);
+      scheduleVisibilityCheck();
+    }, 500);
+
+    return () => {
+      window.clearTimeout(timer);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+      if (scheduleVisibilityCheck) {
+        window.removeEventListener("scroll", scheduleVisibilityCheck);
+        window.removeEventListener("resize", scheduleVisibilityCheck);
+      }
+      observer?.disconnect();
+      targets.forEach((target) => {
+        target.classList.remove("reveal", "in-view");
+        target.style.removeProperty("--reveal-delay");
+      });
+    };
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <SiteHeader />
-      <Outlet />
+      <div className="site-content">
+        <Outlet />
+      </div>
+      {pathname !== "/contact-us" && <ContactBlock />}
       <SiteFooter />
+      <FloatingWhatsApp />
       <BackToTop />
     </QueryClientProvider>
   );

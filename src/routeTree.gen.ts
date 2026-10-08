@@ -10,14 +10,47 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as R404RouteImport } from './routes/404'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as AgricultureRouteImport } from './routes/agriculture'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as GlobalMarketReachRouteImport } from './routes/global-market-reach'
+import { Route as HorticultureRouteImport } from './routes/horticulture'
+import { Route as InternationalSourcingRouteImport } from './routes/international-sourcing'
+import { Route as MachineryRouteImport } from './routes/machinery'
+import { Route as OurProductsRouteImport } from './routes/our-products'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ProductionAndGlobalSourcingRouteImport } from './routes/production-and-global-sourcing'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgricultureRoute = AgricultureRouteImport.update({
+  id: '/agriculture',
+  path: '/agriculture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsRoute = ContactUsRouteImport.update({
@@ -30,9 +63,55 @@ const CookiePolicyRoute = CookiePolicyRouteImport.update({
   path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GlobalMarketReachRoute = GlobalMarketReachRouteImport.update({
+  id: '/global-market-reach',
+  path: '/global-market-reach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HorticultureRoute = HorticultureRouteImport.update({
+  id: '/horticulture',
+  path: '/horticulture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternationalSourcingRoute = InternationalSourcingRouteImport.update({
+  id: '/international-sourcing',
+  path: '/international-sourcing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MachineryRoute = MachineryRouteImport.update({
+  id: '/machinery',
+  path: '/machinery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurProductsRoute = OurProductsRouteImport.update({
+  id: '/our-products',
+  path: '/our-products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductionAndGlobalSourcingRoute =
+  ProductionAndGlobalSourcingRouteImport.update({
+    id: '/production-and-global-sourcing',
+    path: '/production-and-global-sourcing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
@@ -43,55 +122,146 @@ const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
+  '/about-us': typeof AboutUsRoute
+  '/agriculture': typeof AgricultureRoute
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/global-market-reach': typeof GlobalMarketReachRoute
+  '/horticulture': typeof HorticultureRoute
+  '/international-sourcing': typeof InternationalSourcingRoute
+  '/machinery': typeof MachineryRoute
+  '/our-products': typeof OurProductsRoute
+  '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/production-and-global-sourcing': typeof ProductionAndGlobalSourcingRoute
+  '/projects': typeof ProjectsRoute
+  '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
+  '/about-us': typeof AboutUsRoute
+  '/agriculture': typeof AgricultureRoute
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/global-market-reach': typeof GlobalMarketReachRoute
+  '/horticulture': typeof HorticultureRoute
+  '/international-sourcing': typeof InternationalSourcingRoute
+  '/machinery': typeof MachineryRoute
+  '/our-products': typeof OurProductsRoute
+  '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/production-and-global-sourcing': typeof ProductionAndGlobalSourcingRoute
+  '/projects': typeof ProjectsRoute
+  '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
+  '/about-us': typeof AboutUsRoute
+  '/agriculture': typeof AgricultureRoute
   '/contact-us': typeof ContactUsRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/global-market-reach': typeof GlobalMarketReachRoute
+  '/horticulture': typeof HorticultureRoute
+  '/international-sourcing': typeof InternationalSourcingRoute
+  '/machinery': typeof MachineryRoute
+  '/our-products': typeof OurProductsRoute
+  '/privacy': typeof PrivacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/production-and-global-sourcing': typeof ProductionAndGlobalSourcingRoute
+  '/projects': typeof ProjectsRoute
+  '/terms': typeof TermsRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/404'
+    | '/about'
+    | '/about-us'
+    | '/agriculture'
     | '/contact-us'
     | '/cookie-policy'
+    | '/global-market-reach'
+    | '/horticulture'
+    | '/international-sourcing'
+    | '/machinery'
+    | '/our-products'
+    | '/privacy'
     | '/privacy-policy'
+    | '/production-and-global-sourcing'
+    | '/projects'
+    | '/terms'
     | '/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/404'
+    | '/about'
+    | '/about-us'
+    | '/agriculture'
     | '/contact-us'
     | '/cookie-policy'
+    | '/global-market-reach'
+    | '/horticulture'
+    | '/international-sourcing'
+    | '/machinery'
+    | '/our-products'
+    | '/privacy'
     | '/privacy-policy'
+    | '/production-and-global-sourcing'
+    | '/projects'
+    | '/terms'
     | '/terms-and-conditions'
   id:
     | '__root__'
     | '/'
+    | '/404'
+    | '/about'
+    | '/about-us'
+    | '/agriculture'
     | '/contact-us'
     | '/cookie-policy'
+    | '/global-market-reach'
+    | '/horticulture'
+    | '/international-sourcing'
+    | '/machinery'
+    | '/our-products'
+    | '/privacy'
     | '/privacy-policy'
+    | '/production-and-global-sourcing'
+    | '/projects'
+    | '/terms'
     | '/terms-and-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R404Route: typeof R404Route
+  AboutRoute: typeof AboutRoute
+  AboutUsRoute: typeof AboutUsRoute
+  AgricultureRoute: typeof AgricultureRoute
   ContactUsRoute: typeof ContactUsRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
+  GlobalMarketReachRoute: typeof GlobalMarketReachRoute
+  HorticultureRoute: typeof HorticultureRoute
+  InternationalSourcingRoute: typeof InternationalSourcingRoute
+  MachineryRoute: typeof MachineryRoute
+  OurProductsRoute: typeof OurProductsRoute
+  PrivacyRoute: typeof PrivacyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ProductionAndGlobalSourcingRoute: typeof ProductionAndGlobalSourcingRoute
+  ProjectsRoute: typeof ProjectsRoute
+  TermsRoute: typeof TermsRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
 }
 
@@ -102,6 +272,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agriculture': {
+      id: '/agriculture'
+      path: '/agriculture'
+      fullPath: '/agriculture'
+      preLoaderRoute: typeof AgricultureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-us': {
@@ -118,11 +316,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/global-market-reach': {
+      id: '/global-market-reach'
+      path: '/global-market-reach'
+      fullPath: '/global-market-reach'
+      preLoaderRoute: typeof GlobalMarketReachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/horticulture': {
+      id: '/horticulture'
+      path: '/horticulture'
+      fullPath: '/horticulture'
+      preLoaderRoute: typeof HorticultureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/international-sourcing': {
+      id: '/international-sourcing'
+      path: '/international-sourcing'
+      fullPath: '/international-sourcing'
+      preLoaderRoute: typeof InternationalSourcingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/machinery': {
+      id: '/machinery'
+      path: '/machinery'
+      fullPath: '/machinery'
+      preLoaderRoute: typeof MachineryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-products': {
+      id: '/our-products'
+      path: '/our-products'
+      fullPath: '/our-products'
+      preLoaderRoute: typeof OurProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/production-and-global-sourcing': {
+      id: '/production-and-global-sourcing'
+      path: '/production-and-global-sourcing'
+      fullPath: '/production-and-global-sourcing'
+      preLoaderRoute: typeof ProductionAndGlobalSourcingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms-and-conditions': {
@@ -137,9 +398,22 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R404Route: R404Route,
+  AboutRoute: AboutRoute,
+  AboutUsRoute: AboutUsRoute,
+  AgricultureRoute: AgricultureRoute,
   ContactUsRoute: ContactUsRoute,
   CookiePolicyRoute: CookiePolicyRoute,
+  GlobalMarketReachRoute: GlobalMarketReachRoute,
+  HorticultureRoute: HorticultureRoute,
+  InternationalSourcingRoute: InternationalSourcingRoute,
+  MachineryRoute: MachineryRoute,
+  OurProductsRoute: OurProductsRoute,
+  PrivacyRoute: PrivacyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ProductionAndGlobalSourcingRoute: ProductionAndGlobalSourcingRoute,
+  ProjectsRoute: ProjectsRoute,
+  TermsRoute: TermsRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
 }
 export const routeTree = rootRouteImport
