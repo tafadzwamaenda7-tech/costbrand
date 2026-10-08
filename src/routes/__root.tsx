@@ -16,7 +16,6 @@ import {
   SiteFooter,
   ContactBlock,
   FloatingWhatsApp,
-  BackToTop,
   NotFoundPage,
 } from "@/components/site-shell";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -112,6 +111,46 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+const REVEAL_VARIANTS: ReadonlyArray<readonly [string, string]> = [
+  [".page-intro-copy", "drop"],
+  [".page-intro-image", "zoom"],
+  [".display-heading", "drop"],
+  [".section-eyebrow", "fade"],
+  [".pillar-card", "scale"],
+  [".about-why-card", "scale"],
+  [".focus-area-card", "scale"],
+  [".connection-card", "scale"],
+  [".home-crop-tile", "scale"],
+  [".machinery-product-list > li", "scale"],
+  [".horticulture-market-cards > article", "scale"],
+  [".market-list > article", "scale"],
+  [".agriculture-focus-row", "scale"],
+  [".sourcing-stepper > li", "scale"],
+  [".process-list > li", "scale"],
+  [".plot68-gallery > figure", "zoom"],
+  [".plot68-stats > div", "pop"],
+  [".service-item", "rise"],
+  [".journey-list > li", "rise"],
+  [".sourcing-trust > *", "rise"],
+  [".horticulture-intro > p", "drop"],
+  [".agriculture-intro > h2", "drop"],
+  [".machinery-intro > h2", "drop"],
+  [".about-vision h2", "drop"],
+  [".about-mission h2", "drop"],
+  [".policy-page > h1", "drop"],
+  [".policy-page > h2", "fade"],
+  [".contact-brand", "scale"],
+  [".contact-form-content", "rise"],
+  [".not-found-inner", "pop"],
+];
+
+function variantFor(target: HTMLElement) {
+  for (const [selector, variant] of REVEAL_VARIANTS) {
+    if (target.matches(selector)) return variant;
+  }
+  return "rise";
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const { pathname } = useLocation();
@@ -120,6 +159,7 @@ function RootComponent() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets: HTMLElement[] = [];
+    const assigned: HTMLElement[] = [];
     let observer: IntersectionObserver | undefined;
     let frame: number | undefined;
     let scheduleVisibilityCheck: (() => void) | undefined;
@@ -130,7 +170,6 @@ function RootComponent() {
       targets.push(
         ...main.querySelectorAll<HTMLElement>(
           [
-            ".home-hero-content",
             ".page-intro-copy",
             ".page-intro-image",
             ".display-heading",
@@ -162,6 +201,8 @@ function RootComponent() {
             ".contact-brand",
             ".contact-form-content",
             ".not-found-inner",
+            "[data-reveal]",
+            "[data-stagger] > *",
           ].join(","),
         ),
       );
@@ -185,7 +226,11 @@ function RootComponent() {
       targets.forEach((target) => {
         const siblings = target.parentElement ? Array.from(target.parentElement.children) : [];
         const siblingIndex = Math.max(0, siblings.indexOf(target));
-        target.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 4) * 55}ms`);
+        target.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 6) * 65}ms`);
+        if (!target.dataset["reveal"]) {
+          target.dataset["reveal"] = variantFor(target);
+          assigned.push(target);
+        }
         target.classList.add("reveal");
         observer?.observe(target);
       });
@@ -220,6 +265,9 @@ function RootComponent() {
         target.classList.remove("reveal", "in-view");
         target.style.removeProperty("--reveal-delay");
       });
+      assigned.forEach((target) => {
+        delete target.dataset["reveal"];
+      });
     };
   }, [pathname]);
 
@@ -232,7 +280,6 @@ function RootComponent() {
       {pathname !== "/contact-us" && <ContactBlock />}
       <SiteFooter />
       <FloatingWhatsApp />
-      <BackToTop />
     </QueryClientProvider>
   );
 }

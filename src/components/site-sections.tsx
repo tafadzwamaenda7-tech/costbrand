@@ -68,7 +68,15 @@ const pillars = [
   },
 ];
 
-export function PageIntro({ title, copy, image, imageAlt, action, to, tone = "default" }: PageIntroProps) {
+export function PageIntro({
+  title,
+  copy,
+  image,
+  imageAlt,
+  action,
+  to,
+  tone = "default",
+}: PageIntroProps) {
   return (
     <section className={`page-intro${tone === "forest" ? " page-intro-forest" : ""}`}>
       <div className="page-intro-copy">
@@ -98,17 +106,22 @@ export function PillarsSection() {
             <h2 className="display-heading">One connected view of agriculture.</h2>
           </div>
           <p className="section-lead">
-            Costbrand brings together four related areas of work, from production and equipment to market connections.
+            Costbrand brings together four related areas of work, from production and equipment to
+            market connections.
           </p>
         </div>
         <div className="pillar-grid">
           {pillars.map(({ name, copy, to, image, alt }) => (
             <Link className="pillar-card" to={to} key={name} aria-label={`Explore ${name}`}>
-              <div className="pillar-image"><img src={image} alt={alt} loading="lazy" /></div>
+              <div className="pillar-image">
+                <img src={image} alt={alt} loading="lazy" />
+              </div>
               <div className="pillar-copy">
                 <h3>{name}</h3>
                 <p>{copy}</p>
-                <span>Explore <ArrowUpRight size={16} aria-hidden="true" /></span>
+                <span>
+                  Explore <ArrowUpRight size={16} aria-hidden="true" />
+                </span>
               </div>
             </Link>
           ))}
@@ -122,14 +135,15 @@ export function ZimbabweStatement() {
   return (
     <section className="zimbabwe-statement">
       <div className="content-width statement-inner">
-        <p className="statement-text">
+        <p className="statement-text" data-reveal="pop">
           Grow with the land.
           <br />
           <em>Connect with the world.</em>
         </p>
         <span className="statement-rule" />
         <p className="statement-note">
-          A Zimbabwean company working across agriculture, horticulture, machinery and international sourcing.
+          A Zimbabwean company working across agriculture, horticulture, machinery and international
+          sourcing.
         </p>
       </div>
     </section>
@@ -137,8 +151,15 @@ export function ZimbabweStatement() {
 }
 
 const produce = [
-  "Avocados", "Tomatoes", "Onions", "Watermelons", "Peas", "Chillies",
-  "Broccoli", "Carrots", "Peppers",
+  "Avocados",
+  "Tomatoes",
+  "Onions",
+  "Watermelons",
+  "Peas",
+  "Chillies",
+  "Broccoli",
+  "Carrots",
+  "Peppers",
 ];
 
 export function ProductsSection() {
@@ -149,15 +170,26 @@ export function ProductsSection() {
           <div className="produce-intro">
             <h2 className="display-heading">Good food begins with good growing.</h2>
             <p className="section-lead">
-              Explore the produce categories we work with. Specific availability is discussed around each enquiry and season.
+              Explore the produce categories we work with. Specific availability is discussed around
+              each enquiry and season.
             </p>
             <Link className="text-link" to="/horticulture">
               Explore horticulture <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
           <div className="produce-image-stack">
-            <img className="produce-image-main" src={assets.hero} alt="Fresh sugar snap peas with a blue flower" loading="lazy" />
-            <img className="produce-image-detail" src={assets.passionFruit} alt="Passion fruit" loading="lazy" />
+            <img
+              className="produce-image-main"
+              src={assets.hero}
+              alt="Fresh sugar snap peas with a blue flower"
+              loading="lazy"
+            />
+            <img
+              className="produce-image-detail"
+              src={assets.passionFruit}
+              alt="Passion fruit"
+              loading="lazy"
+            />
             <span className="image-note">Fresh produce · Zimbabwe</span>
           </div>
         </div>
@@ -177,32 +209,53 @@ export function ProductsSection() {
 
 const plot68Photos = [
   { src: assets.fieldSunset, alt: "Pea field at Plot 68, Zimbabwe.", caption: "Grown at Plot 68" },
-  { src: assets.plotPackedLabelled, alt: "Produce packed and labelled for export at Plot 68.", caption: "Packed and labelled" },
-  { src: assets.plotPreparedExport, alt: "Produce prepared for export from Plot 68.", caption: "Prepared for export" },
+  {
+    src: assets.plotPackedLabelled,
+    alt: "Produce packed and labelled for export at Plot 68.",
+    caption: "Packed and labelled",
+  },
+  {
+    src: assets.plotPreparedExport,
+    alt: "Produce prepared for export from Plot 68.",
+    caption: "Prepared for export",
+  },
 ];
 
-export function Plot68CaseStudy({ context = "horticulture" }: { context?: "horticulture" | "agriculture" }) {
+export function Plot68CaseStudy({
+  context = "horticulture",
+}: {
+  context?: "horticulture" | "agriculture";
+}) {
   const isAgriculture = context === "agriculture";
   const photos = isAgriculture
     ? plot68Photos.map((photo, index) => ({
         ...photo,
-        caption: ["Grown at Plot 68", "Packed for export", "Prepared to buyer specification"][index],
+        caption: ["Grown at Plot 68", "Packed for export", "Prepared to buyer specification"][
+          index
+        ],
       }))
     : plot68Photos;
 
   return (
-    <section className={`plot68-section${isAgriculture ? " plot68-agriculture" : ""}`} aria-labelledby="plot68-title">
+    <section
+      className={`plot68-section${isAgriculture ? " plot68-agriculture" : ""}`}
+      aria-labelledby="plot68-title"
+    >
       <div className="plot68-band">
-        <div>
+        <div data-reveal="drop">
           {isAgriculture ? (
             <>
               <p>Agricultural Projects</p>
-              <h2 id="plot68-title">From planning to production — how we develop farms and enterprises.</h2>
+              <h2 id="plot68-title">
+                From planning to production — how we develop farms and enterprises.
+              </h2>
             </>
           ) : (
             <>
               <p>Case study</p>
-              <h2 id="plot68-title">Plot 68 <span aria-hidden="true">→</span> England &amp; the Netherlands</h2>
+              <h2 id="plot68-title">
+                Plot 68 <span aria-hidden="true">→</span> England &amp; the Netherlands
+              </h2>
             </>
           )}
         </div>
@@ -215,25 +268,45 @@ export function Plot68CaseStudy({ context = "horticulture" }: { context?: "horti
           </figure>
         ))}
       </div>
-      <div className="plot68-story">
-        {isAgriculture && <h3 className="plot68-agriculture-title">Plot 68 · Peas · Production to Export</h3>}
+      <div className="plot68-story" data-stagger>
+        {isAgriculture && (
+          <h3 className="plot68-agriculture-title">Plot 68 · Peas · Production to Export</h3>
+        )}
         <p>
           {isAgriculture
             ? "In 2025, Costbrand produced and prepared peas at Plot 68 for export to England and the Netherlands. The crop moved from field to cold chain to international market."
             : "In 2025, Costbrand exported peas from Zimbabwe to England and the Netherlands — from our fields, through our packing process, to European buyers."}
         </p>
         <dl className={`plot68-stats${isAgriculture ? " plot68-stats-four" : ""}`}>
-          <div><dt>2025</dt><dd>Exported</dd></div>
+          <div>
+            <dt>2025</dt>
+            <dd>Exported</dd>
+          </div>
           {isAgriculture ? (
             <>
-              <div><dt>1 shipment</dt><dd>From Plot 68</dd></div>
-              <div><dt>2 destinations</dt><dd>England &amp; the Netherlands</dd></div>
-              <div><dt>England &amp; Netherlands</dt><dd>European markets</dd></div>
+              <div>
+                <dt>1 shipment</dt>
+                <dd>From Plot 68</dd>
+              </div>
+              <div>
+                <dt>2 destinations</dt>
+                <dd>England &amp; the Netherlands</dd>
+              </div>
+              <div>
+                <dt>England &amp; Netherlands</dt>
+                <dd>European markets</dd>
+              </div>
             </>
           ) : (
             <>
-              <div><dt>2 markets</dt><dd>England &amp; the Netherlands</dd></div>
-              <div><dt>1 shipment</dt><dd>Track record</dd></div>
+              <div>
+                <dt>2 markets</dt>
+                <dd>England &amp; the Netherlands</dd>
+              </div>
+              <div>
+                <dt>1 shipment</dt>
+                <dd>Track record</dd>
+              </div>
             </>
           )}
         </dl>
@@ -258,7 +331,9 @@ export function HorticultureFocusAreas() {
   return (
     <section className="focus-areas-section section-pad" aria-labelledby="focus-areas-title">
       <div className="content-width">
-        <h2 id="focus-areas-title" className="display-heading">Focus Areas</h2>
+        <h2 id="focus-areas-title" className="display-heading">
+          Focus Areas
+        </h2>
         <div className="focus-areas-grid">
           {focusAreas.map(([name, image]) => (
             <article className="focus-area-card" key={name}>
@@ -300,10 +375,14 @@ export function HomeHorticultureSpotlight() {
             </Link>
           ))}
         </div>
-        <div className="home-horticulture-statement">
+        <div className="home-horticulture-statement" data-stagger>
           <p>Zimbabwe has the land, the climate, the farmers.</p>
-          <p><strong>Costbrand builds the connection.</strong></p>
-          <Link className="button-primary" to="/horticulture">Explore Horticulture <ArrowUpRight size={16} aria-hidden="true" /></Link>
+          <p>
+            <strong>Costbrand builds the connection.</strong>
+          </p>
+          <Link className="button-primary" to="/horticulture">
+            Explore Horticulture <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>
@@ -315,7 +394,11 @@ export function HomeClosingStatement() {
     <section className="home-closing-band">
       <img src={assets.fieldWide} alt="The Zimbabwean landscape at dawn." loading="lazy" />
       <div className="home-closing-shade" />
-      <p>From Farm to Market.<br />From Zimbabwe to the World.</p>
+      <p data-reveal="pop">
+        From Farm to Market.
+        <br />
+        From Zimbabwe to the World.
+      </p>
     </section>
   );
 }
@@ -397,19 +480,27 @@ export function AgricultureSection() {
         <a href="#agriculture-projects">Projects</a>
       </nav>
       <section className="agriculture-intro">
-        <h2>We develop agricultural enterprises that are productive, commercially viable, and built to last.</h2>
+        <h2>
+          We develop agricultural enterprises that are productive, commercially viable, and built to
+          last.
+        </h2>
       </section>
       <section className="agriculture-focus section-pad" id="agriculture-focus">
         <div className="content-width">
           <h2 className="display-heading">Focus Areas</h2>
           <div className="agriculture-focus-list">
             {focusAreas.map((area, index) => (
-              <article className={`agriculture-focus-row${index % 2 ? " is-reversed" : ""}`} key={area.title}>
+              <article
+                className={`agriculture-focus-row${index % 2 ? " is-reversed" : ""}`}
+                key={area.title}
+              >
                 <div className="agriculture-focus-copy">
                   <p className="agriculture-focus-marker">{area.marker}</p>
                   <h3>{area.title}</h3>
                   <ul>
-                    {area.items.map((item) => <li key={item}>{item}</li>)}
+                    {area.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
                   </ul>
                 </div>
                 <img src={area.image} alt={area.alt} loading="lazy" />
@@ -421,7 +512,11 @@ export function AgricultureSection() {
       <div id="agriculture-projects">
         <Plot68CaseStudy context="agriculture" />
       </div>
-      <CrossLinkBand title="Equipment for every stage of production." to="/machinery" label="Explore machinery" />
+      <CrossLinkBand
+        title="Equipment for every stage of production."
+        to="/machinery"
+        label="Explore machinery"
+      />
     </>
   );
 }
@@ -445,7 +540,10 @@ export function HorticulturePage() {
       </nav>
       <section className="horticulture-intro">
         <p>Growing quality horticultural products for Zimbabwean and international markets.</p>
-        <p>Costbrand will seek to develop commercially viable horticultural production for both domestic consumption and export markets.</p>
+        <p>
+          Costbrand will seek to develop commercially viable horticultural production for both
+          domestic consumption and export markets.
+        </p>
       </section>
       <Plot68CaseStudy />
       <ProductsSection />
@@ -455,16 +553,29 @@ export function HorticulturePage() {
         <div className="content-width">
           <h2 className="display-heading">Markets</h2>
           <div className="horticulture-market-cards">
-            <article><span aria-hidden="true">01</span><h3>England</h3><p>Fresh produce</p></article>
-            <article><span aria-hidden="true">02</span><h3>The Netherlands</h3><p>Fresh produce</p></article>
+            <article>
+              <span aria-hidden="true">01</span>
+              <h3>England</h3>
+              <p>Fresh produce</p>
+            </article>
+            <article>
+              <span aria-hidden="true">02</span>
+              <h3>The Netherlands</h3>
+              <p>Fresh produce</p>
+            </article>
           </div>
-          <p className="horticulture-market-proof">In 2025, Costbrand exported peas from Zimbabwe to England and the Netherlands.</p>
+          <p className="horticulture-market-proof">
+            In 2025, Costbrand exported peas from Zimbabwe to England and the Netherlands.
+          </p>
         </div>
       </section>
       <section className="horticulture-closing-band">
         <div className="content-width horticulture-closing-inner">
           <p className="section-eyebrow">Horticulture</p>
-          <h2>Our goal is to grow quality horticultural products for Zimbabwean and international markets.</h2>
+          <h2 data-reveal="drop">
+            Our goal is to grow quality horticultural products for Zimbabwean and international
+            markets.
+          </h2>
           <p>Talk to us about your produce requirements.</p>
           <div className="horticulture-closing-actions">
             <Link to="/contact-us" className="button-primary">
@@ -493,25 +604,52 @@ export function SourcingSection() {
   return (
     <>
       <section className="sourcing-hero">
-        <h1>We find it. We verify it.<br />We source it. We bring it to you.</h1>
-        <img src={assets.internationalSourcing} alt="Fresh produce in a sourcing and logistics context." loading="eager" />
+        <h1 data-reveal="drop">
+          We find it. We verify it.
+          <br />
+          We source it. We bring it to you.
+        </h1>
+        <img
+          src={assets.internationalSourcing}
+          alt="Fresh produce in a sourcing and logistics context."
+          loading="eager"
+          data-reveal="zoom"
+        />
       </section>
       <section className="sourcing-what-we-do section-pad" id="sourcing-what-we-do">
         <div className="content-width sourcing-what-layout">
           <div>
-            <h2>Costbrand assists customers in sourcing agricultural machinery, equipment and products from international markets.</h2>
+            <h2>
+              Costbrand assists customers in sourcing agricultural machinery, equipment and products
+              from international markets.
+            </h2>
           </div>
-          <img src={assets.globalSourcing} alt="Agricultural fields illustrating Costbrand's supply-chain work." loading="lazy" />
+          <img
+            src={assets.globalSourcing}
+            alt="Agricultural fields illustrating Costbrand's supply-chain work."
+            loading="lazy"
+          />
         </div>
       </section>
-      <section className="sourcing-process section-pad" id="sourcing-process" aria-labelledby="sourcing-process-title">
+      <section
+        className="sourcing-process section-pad"
+        id="sourcing-process"
+        aria-labelledby="sourcing-process-title"
+      >
         <div className="content-width">
-          <h2 id="sourcing-process-title" className="display-heading">Our Process</h2>
-          <ol className="sourcing-stepper">
+          <h2 id="sourcing-process-title" className="display-heading">
+            Our Process
+          </h2>
+          <ol className="sourcing-stepper" data-stagger>
             {stages.map(([name, description], index) => (
               <li className={index === 2 || index === 4 ? "is-trust-step" : ""} key={name}>
-                <span className="sourcing-step-number" aria-hidden="true">{index + 1}</span>
-                <div><h3>{name}</h3><p>{description}</p></div>
+                <span className="sourcing-step-number" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3>{name}</h3>
+                  <p>{description}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -520,7 +658,10 @@ export function SourcingSection() {
       <section className="sourcing-trust">
         <div className="content-width">
           <h2>Why We Verify</h2>
-          <p>Sourcing internationally carries risk — wrong specification, poor quality, unreliable suppliers. Our process is built to remove that risk before money changes hands.</p>
+          <p>
+            Sourcing internationally carries risk — wrong specification, poor quality, unreliable
+            suppliers. Our process is built to remove that risk before money changes hands.
+          </p>
         </div>
       </section>
       <section className="sourcing-request section-pad" id="sourcing-request">
@@ -529,7 +670,11 @@ export function SourcingSection() {
           <RequestForm kind="sourcing" />
         </div>
       </section>
-      <CrossLinkBand title="See the equipment we source." to="/machinery" label="Explore machinery" />
+      <CrossLinkBand
+        title="See the equipment we source."
+        to="/machinery"
+        label="Explore machinery"
+      />
     </>
   );
 }
@@ -574,19 +719,33 @@ export function MachinerySection() {
         tone="forest"
       />
       <section className="machinery-intro">
-        <h2>We supply machinery and equipment for every stage of the farming cycle — from land preparation to processing.</h2>
+        <h2>
+          We supply machinery and equipment for every stage of the farming cycle — from land
+          preparation to processing.
+        </h2>
       </section>
       <section className="machinery-groups section-pad">
         <div className="content-width">
           {groups.map((group) => (
-            <section className="machinery-group" key={group.title} id={`machinery-${group.title.toLowerCase().replaceAll(" ", "-")}`}>
+            <section
+              className="machinery-group"
+              key={group.title}
+              id={`machinery-${group.title.toLowerCase().replaceAll(" ", "-")}`}
+            >
               <h2>{group.title}</h2>
-              <img className="machinery-group-image" src={group.image} alt={group.alt} loading="lazy" />
+              <img
+                className="machinery-group-image"
+                src={group.image}
+                alt={group.alt}
+                loading="lazy"
+              />
               <ul className="machinery-product-list">
                 {group.products.map((product) => (
                   <li key={product}>
                     <span>{product}</span>
-                    <Link to="/contact-us" aria-label={`Request a quote for ${product}`}>Enquire <ArrowUpRight size={15} aria-hidden="true" /></Link>
+                    <Link to="/contact-us" aria-label={`Request a quote for ${product}`}>
+                      Enquire <ArrowUpRight size={15} aria-hidden="true" />
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -597,26 +756,43 @@ export function MachinerySection() {
       <section className="machinery-sourcing-link">
         <div className="content-width">
           <h2>Sourced internationally. Verified. Delivered to Zimbabwe.</h2>
-          <Link to="/international-sourcing">See how our sourcing process works <ArrowUpRight size={16} aria-hidden="true" /></Link>
+          <Link to="/international-sourcing">
+            See how our sourcing process works <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
         </div>
       </section>
       <section className="machinery-request section-pad" id="machinery-request">
         <div className="content-width">
           <h2 className="display-heading">Tell us what your operation needs.</h2>
-          <p className="section-lead">Equipment options, models and specifications are confirmed in response to each enquiry.</p>
+          <p className="section-lead">
+            Equipment options, models and specifications are confirmed in response to each enquiry.
+          </p>
           <RequestForm kind="machinery" />
         </div>
       </section>
-      <CrossLinkBand title="How we source and verify equipment." to="/international-sourcing" label="Explore international sourcing" />
+      <CrossLinkBand
+        title="How we source and verify equipment."
+        to="/international-sourcing"
+        label="Explore international sourcing"
+      />
     </>
   );
 }
 
 export function ProjectsSection() {
   const projectAreas = [
-    ["Farm development", "Discuss the goals, site context and practical requirements behind a development opportunity."],
-    ["Production partnerships", "Bring together growers, buyers and collaborators around a shared agricultural objective."],
-    ["Equipment and infrastructure", "Explore how machinery, irrigation or processing requirements fit within a wider project."],
+    [
+      "Farm development",
+      "Discuss the goals, site context and practical requirements behind a development opportunity.",
+    ],
+    [
+      "Production partnerships",
+      "Bring together growers, buyers and collaborators around a shared agricultural objective.",
+    ],
+    [
+      "Equipment and infrastructure",
+      "Explore how machinery, irrigation or processing requirements fit within a wider project.",
+    ],
   ];
   return (
     <>
@@ -631,21 +807,33 @@ export function ProjectsSection() {
       <section className="service-section section-pad">
         <div className="content-width">
           <div className="section-heading-row">
-            <div><h2 className="display-heading">A framework for what comes next.</h2></div>
-            <p className="section-lead">Project fit, scope and partners are established through discussion. No case studies are presented until details are confirmed.</p>
+            <div>
+              <h2 className="display-heading">A framework for what comes next.</h2>
+            </div>
+            <p className="section-lead">
+              Project fit, scope and partners are established through discussion. No case studies
+              are presented until details are confirmed.
+            </p>
           </div>
           <div className="service-list">
             {projectAreas.map(([title, copy], index) => (
               <article className="service-item" key={title}>
                 <span className="service-index">0{index + 1}</span>
-                <div><h3>{title}</h3><p>{copy}</p></div>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </article>
             ))}
           </div>
         </div>
       </section>
-      <CrossLinkBand title="Let’s shape the next step together." to="/contact-us" label="Start a conversation" />
+      <CrossLinkBand
+        title="Let’s shape the next step together."
+        to="/contact-us"
+        label="Start a conversation"
+      />
     </>
   );
 }
@@ -664,17 +852,38 @@ export function MarketsSection() {
       <section className="markets-section section-pad">
         <div className="content-width">
           <div className="section-heading-row">
-            <div><h2 className="display-heading">Connections shaped around the buyer.</h2></div>
-            <p className="section-lead">Market availability, logistics and fulfilment are discussed for each enquiry. We do not assume a country or route before details are agreed.</p>
+            <div>
+              <h2 className="display-heading">Connections shaped around the buyer.</h2>
+            </div>
+            <p className="section-lead">
+              Market availability, logistics and fulfilment are discussed for each enquiry. We do
+              not assume a country or route before details are agreed.
+            </p>
           </div>
           <div className="market-list">
-            <article><span>01</span><h3>Zimbabwe</h3><p>Our home base for agricultural work and local partnerships.</p></article>
-            <article><span>02</span><h3>Regional Africa</h3><p>Regional opportunities approached through relevant partners and requirements.</p></article>
-            <article><span>03</span><h3>International</h3><p>Buyer and supplier conversations that can connect Zimbabwe to wider markets.</p></article>
+            <article>
+              <span>01</span>
+              <h3>Zimbabwe</h3>
+              <p>Our home base for agricultural work and local partnerships.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Regional Africa</h3>
+              <p>Regional opportunities approached through relevant partners and requirements.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>International</h3>
+              <p>Buyer and supplier conversations that can connect Zimbabwe to wider markets.</p>
+            </article>
           </div>
         </div>
       </section>
-      <CrossLinkBand title="Sourcing, production and markets work best together." to="/international-sourcing" label="Explore sourcing" />
+      <CrossLinkBand
+        title="Sourcing, production and markets work best together."
+        to="/international-sourcing"
+        label="Explore sourcing"
+      />
     </>
   );
 }
@@ -725,22 +934,36 @@ export function AboutSection() {
       />
       <section className="about-story section-pad">
         <div className="content-width about-story-layout">
-          <div><h2 className="display-heading">Who We Are</h2></div>
           <div>
-            <p className="section-lead">COSTBRAND ENTERPRISES (PRIVATE) LIMITED is a Zimbabwean agricultural and international sourcing company focused on developing productive agricultural and horticultural enterprises, supplying modern machinery and connecting Zimbabwean businesses with global markets and reliable international suppliers.</p>
+            <h2 className="display-heading">Who We Are</h2>
+          </div>
+          <div>
+            <p className="section-lead">
+              COSTBRAND ENTERPRISES (PRIVATE) LIMITED is a Zimbabwean agricultural and international
+              sourcing company focused on developing productive agricultural and horticultural
+              enterprises, supplying modern machinery and connecting Zimbabwean businesses with
+              global markets and reliable international suppliers.
+            </p>
           </div>
         </div>
       </section>
       <section className="about-vision">
         <div>
           <h2>Our Vision</h2>
-          <p>To become a leading Zimbabwean agricultural enterprise connecting local production, modern technology and global markets.</p>
+          <p>
+            To become a leading Zimbabwean agricultural enterprise connecting local production,
+            modern technology and global markets.
+          </p>
         </div>
       </section>
       <section className="about-mission">
         <div>
           <h2>Our Mission</h2>
-          <p>To develop sustainable agricultural opportunities, improve access to modern machinery and technology, and create reliable pathways for Zimbabwean agricultural products to reach local and international markets.</p>
+          <p>
+            To develop sustainable agricultural opportunities, improve access to modern machinery
+            and technology, and create reliable pathways for Zimbabwean agricultural products to
+            reach local and international markets.
+          </p>
         </div>
       </section>
       <section className="about-why section-pad">
@@ -758,19 +981,37 @@ export function AboutSection() {
         </div>
       </section>
       <section className="about-brand-statement">
-        <p>Costbrand is an agricultural enterprise and international supply-chain company — not simply an exporter or importer.</p>
+        <p data-reveal="pop">
+          Costbrand is an agricultural enterprise and international supply-chain company — not
+          simply an exporter or importer.
+        </p>
       </section>
-      <CrossLinkBand title="Bring us your question, requirement or opportunity." to="/contact-us" label="Contact Costbrand" />
+      <CrossLinkBand
+        title="Bring us your question, requirement or opportunity."
+        to="/contact-us"
+        label="Contact Costbrand"
+      />
     </>
   );
 }
 
-export function CrossLinkBand({ title, to, label }: { title: string; to: SitePath; label: string }) {
+export function CrossLinkBand({
+  title,
+  to,
+  label,
+}: {
+  title: string;
+  to: SitePath;
+  label: string;
+}) {
   return (
     <section className="cross-link-band">
       <div className="content-width cross-link-inner">
-        <h2>{title}</h2>
-        <Link to={to} className="text-link text-link-light">{label}<ArrowUpRight size={17} aria-hidden="true" /></Link>
+        <h2 data-reveal="drop">{title}</h2>
+        <Link to={to} className="text-link text-link-light">
+          {label}
+          <ArrowUpRight size={17} aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );

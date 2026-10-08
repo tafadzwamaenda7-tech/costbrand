@@ -170,7 +170,7 @@ function HomeHero() {
           </div>
         </div>
       </div>
-      <div className="content-width home-hero-rail">
+      <div className="content-width home-hero-rail" data-stagger>
         <p className="home-hero-caption" aria-hidden="true">
           {activeSlideData.caption}
         </p>

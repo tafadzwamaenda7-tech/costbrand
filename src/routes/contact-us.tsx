@@ -63,9 +63,7 @@ function ContactPage() {
           <Link to="/" className="brand-lockup brand-lockup-inverse" aria-label="Costbrand home">
             <img className="contact-logo" src={assets.logo} alt="Costbrand" />
           </Link>
-          <h2>
-            From farm to market. From Zimbabwe to the world.
-          </h2>
+          <h2>From farm to market. From Zimbabwe to the world.</h2>
           <div className="contact-brand-grid">
             <span>Agriculture</span>
             <span>Horticulture</span>
@@ -77,9 +75,12 @@ function ContactPage() {
         <div className="contact-form-panel">
           <div className="contact-form-content">
             <p className="section-eyebrow">Contact us</p>
-            <h1 className="section-heading">Send us a message</h1>
+            <h1 className="section-heading" data-reveal="drop">
+              Send us a message
+            </h1>
             <p className="contact-intro">
-              Share your requirements and a member of our team will get back to you with a tailored response.
+              Share your requirements and a member of our team will get back to you with a tailored
+              response.
             </p>
 
             {status === "success" ? (

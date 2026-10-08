@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { type RefObject, useEffect, useRef, useState } from "react";
-import { ArrowUp, ChevronDown, Mail, MessageCircle, Menu, Search, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Mail, MessageCircle, Menu, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { assets } from "@/lib/site-assets";
 
@@ -99,12 +99,15 @@ const searchEntries = [
 const searchSuggestions = ["Machinery", "Avocados", "Irrigation"] as const;
 
 export function SiteHeader() {
+  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [mobileViewport, setMobileViewport] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const [expandedMobilePillar, setExpandedMobilePillar] = useState<string | null>(null);
+  const [leaving, setLeaving] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLElement | null>(null);
   const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
@@ -115,6 +118,15 @@ export function SiteHeader() {
   const menuTimerRef = useRef<number | undefined>(undefined);
   const suppressMenuFocusRef = useRef<string | null>(null);
   const wasOpenRef = useRef(false);
+  const leavingRef = useRef(false);
+  const leaveTimerRef = useRef<number | undefined>(undefined);
+
+  useEffect(
+    () => () => {
+      if (leaveTimerRef.current !== undefined) window.clearTimeout(leaveTimerRef.current);
+    },
+    [],
+  );
 
   useEffect(() => {
     const viewport = window.matchMedia?.("(max-width: 930px)");
@@ -134,6 +146,13 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
+    const updateScrolled = () => setScrolled(window.scrollY > 8);
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
+
+  useEffect(() => {
     if (!open) {
       if (wasOpenRef.current) {
         wasOpenRef.current = false;
@@ -144,9 +163,16 @@ export function SiteHeader() {
 
     wasOpenRef.current = true;
 
+    if (leaveTimerRef.current !== undefined) {
+      window.clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = undefined;
+    }
+    leavingRef.current = false;
+    setLeaving(false);
+
     const getFocusableElements = () =>
       menuRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
 
     mobileSearchInputRef.current?.focus();
@@ -155,7 +181,7 @@ export function SiteHeader() {
       if (event.key !== "Escape") return;
       event.preventDefault();
       event.stopPropagation();
-      setOpen(false);
+      requestCloseMenu();
     };
 
     const trapFocus = (event: KeyboardEvent) => {
@@ -213,13 +239,14 @@ export function SiteHeader() {
       if (
         (panelContent?.contains(target) && target !== panelContent) ||
         searchTriggerRef.current?.contains(target)
-      ) return;
+      )
+        return;
       setSearchOpen(false);
     };
     const trapModalFocus = (event: KeyboardEvent) => {
       if (!mobileViewport || event.key !== "Tab" || !panel) return;
       const focusable = panel.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
       if (!focusable.length) return;
       const first = focusable[0];
@@ -272,6 +299,16 @@ export function SiteHeader() {
   }, [activeMenu]);
 
   const closeMenu = () => setOpen(false);
+  const requestCloseMenu = () => {
+    if (leavingRef.current) return;
+    leavingRef.current = true;
+    setLeaving(true);
+    leaveTimerRef.current = window.setTimeout(() => {
+      leavingRef.current = false;
+      setLeaving(false);
+      setOpen(false);
+    }, 260);
+  };
   const clearMenuTimer = () => {
     if (menuTimerRef.current !== undefined) window.clearTimeout(menuTimerRef.current);
     menuTimerRef.current = undefined;
@@ -300,7 +337,7 @@ export function SiteHeader() {
 
   const renderSearchContents = (
     inputRef: RefObject<HTMLInputElement | null>,
-    onEscape?: () => void
+    onEscape?: () => void,
   ) => (
     <>
       <form
@@ -363,7 +400,7 @@ export function SiteHeader() {
   );
 
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <Link to="/" className="brand-lockup" aria-label="Costbrand home" onClick={closeMenu}>
         <img className="site-logo" src={assets.logo} alt="Costbrand" />
       </Link>
@@ -373,7 +410,7 @@ export function SiteHeader() {
         onPointerLeave={scheduleMenuClose}
         onFocusCapture={(event) => {
           const focusedTrigger = (event.target as HTMLElement).closest<HTMLAnchorElement>(
-            ".desktop-nav-item > a[aria-haspopup]"
+            ".desktop-nav-item > a[aria-haspopup]",
           );
           if (!focusedTrigger) {
             if (activeMenu && (event.target as HTMLElement).closest(".desktop-mega-menu")) {
@@ -395,7 +432,8 @@ export function SiteHeader() {
           scheduleMenuOpen(label);
         }}
         onBlurCapture={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) scheduleMenuClose();
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+            scheduleMenuClose();
         }}
       >
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -423,18 +461,36 @@ export function SiteHeader() {
                     onBlurCapture={(event) => {
                       const relatedTarget = event.relatedTarget;
                       const trigger = document.getElementById(`desktop-link-${menu.to.slice(1)}`);
-                      if (relatedTarget !== trigger && !event.currentTarget.contains(relatedTarget as Node | null)) {
+                      if (
+                        relatedTarget !== trigger &&
+                        !event.currentTarget.contains(relatedTarget as Node | null)
+                      ) {
                         scheduleMenuClose();
                       }
                     }}
                   >
-                    <img src={menu.image} alt={menu.imageAlt} />
+                    <a
+                      className="desktop-mega-image"
+                      href={menu.to}
+                      aria-label={`Explore ${menu.label}`}
+                    >
+                      <img src={menu.image} alt={menu.imageAlt} />
+                    </a>
                     <div className="desktop-mega-content">
-                      <p className="desktop-mega-eyebrow">Explore {menu.label}</p>
-                      <a className="desktop-mega-title" href={menu.to}>{menu.label}</a>
+                      <a className="desktop-mega-eyebrow" href={menu.to}>
+                        Explore {menu.label}
+                      </a>
+                      <a className="desktop-mega-title" href={menu.to}>
+                        {menu.label}
+                      </a>
                       <ul>
                         {menu.links.map((link) => (
-                          <li key={link.href}><a href={link.href}>{link.label}<span aria-hidden="true">↗</span></a></li>
+                          <li key={link.href}>
+                            <a href={link.href}>
+                              {link.label}
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -485,59 +541,116 @@ export function SiteHeader() {
       </Button>
 
       {open && (
-        <nav ref={menuRef} className="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
-          <div className="mobile-nav-heading">
-            <span>Explore Costbrand</span>
-            <Button variant="ghost" size="icon" className="menu-close" aria-label="Close menu" onClick={closeMenu}>
-              <X aria-hidden="true" />
-            </Button>
-          </div>
-          <div className="mobile-menu-search">
-            {renderSearchContents(mobileSearchInputRef, closeMenu)}
-          </div>
-          {mobileLinks.map(([label, to], index) => {
-            const menu = pillarMenus.find((item) => item.label === label);
-            if (!menu) {
-              return (
-                <Link className="mobile-nav-link" key={label} to={to} onClick={closeMenu}>
-                  <span>0{index + 1}</span>{label}
-                </Link>
-              );
-            }
-            const expanded = expandedMobilePillar === label;
-            return (
-              <section className="mobile-pillar" key={label}>
-                <div className="mobile-pillar-heading">
-                  <Link to={to} onClick={closeMenu} aria-label={`Go to ${label} page`}>
-                    <span>0{index + 1}</span>{label}
+        <>
+          <div className="mobile-nav-backdrop" onClick={requestCloseMenu} aria-hidden="true" />
+          <nav
+            ref={menuRef}
+            className={`mobile-nav${leaving ? " is-closing" : ""}`}
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+          >
+            <div className="mobile-nav-head">
+              <Link to="/" aria-label="Costbrand home" onClick={closeMenu}>
+                <img className="site-logo mobile-nav-logo" src={assets.logo} alt="Costbrand" />
+              </Link>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="menu-close"
+                aria-label="Close menu"
+                onClick={requestCloseMenu}
+              >
+                <X aria-hidden="true" />
+              </Button>
+            </div>
+
+            <div className="mobile-nav-body">
+              <div className="mobile-menu-search">
+                {renderSearchContents(mobileSearchInputRef, closeMenu)}
+              </div>
+
+              <div className="mobile-nav-list">
+                {mobileLinks.map(([label, to], index) => {
+                  const menu = pillarMenus.find((item) => item.label === label);
+                  const isActive = pathname === to;
+                  if (!menu) {
+                    return (
+                      <Link
+                        className={`mobile-nav-link${isActive ? " is-active" : ""}`}
+                        key={label}
+                        to={to}
+                        onClick={closeMenu}
+                      >
+                        <span>0{index + 1}</span>
+                        <span className="mobile-nav-label">{label}</span>
+                        <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden="true" />
+                      </Link>
+                    );
+                  }
+                  const expanded = expandedMobilePillar === label;
+                  return (
+                    <section className={`mobile-pillar${isActive ? " is-active" : ""}`} key={label}>
+                      <div className="mobile-pillar-heading">
+                        <Link to={to} onClick={closeMenu} aria-label={`Go to ${label} page`}>
+                          <span>0{index + 1}</span>
+                          <span className="mobile-nav-label">{label}</span>
+                          <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden="true" />
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label={`${expanded ? "Hide" : "Show"} ${label} sections`}
+                          aria-expanded={expanded}
+                          aria-controls={`mobile-sections-${menu.to.slice(1)}`}
+                          onClick={() => setExpandedMobilePillar(expanded ? null : label)}
+                        >
+                          <ChevronDown aria-hidden="true" />
+                        </button>
+                      </div>
+                      {expanded && (
+                        <ul
+                          id={`mobile-sections-${menu.to.slice(1)}`}
+                          className="mobile-pillar-links"
+                        >
+                          {menu.links.map((link) => (
+                            <li key={link.href}>
+                              <a href={link.href} onClick={closeMenu}>
+                                {link.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </section>
+                  );
+                })}
+              </div>
+
+              <div className="mobile-nav-foot">
+                <Button asChild className="nav-cta mobile-nav-cta">
+                  <Link to="/contact-us" onClick={closeMenu}>
+                    Get a Quote
+                    <ArrowUpRight size={16} strokeWidth={2} aria-hidden="true" />
                   </Link>
-                  <button
-                    type="button"
-                    aria-label={`${expanded ? "Hide" : "Show"} ${label} sections`}
-                    aria-expanded={expanded}
-                    aria-controls={`mobile-sections-${menu.to.slice(1)}`}
-                    onClick={() => setExpandedMobilePillar(expanded ? null : label)}
+                </Button>
+                <div className="mobile-nav-contact">
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(whatsappMessage(pathname))}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <ChevronDown aria-hidden="true" />
-                  </button>
+                    <MessageCircle size={16} aria-hidden="true" />
+                    WhatsApp
+                  </a>
+                  <a href="mailto:info@costbrand.co.zw">
+                    <Mail size={16} aria-hidden="true" />
+                    info@costbrand.co.zw
+                  </a>
                 </div>
-                {expanded && (
-                  <ul id={`mobile-sections-${menu.to.slice(1)}`} className="mobile-pillar-links">
-                    {menu.links.map((link) => (
-                      <li key={link.href}>
-                        <a href={link.href} onClick={closeMenu}>{link.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-            );
-          })}
-          <Button asChild className="nav-cta mobile-nav-cta">
-            <Link to="/contact-us" onClick={closeMenu}>Get a Quote</Link>
-          </Button>
-          <p>From Zimbabwe to the world.</p>
-        </nav>
+                <p>From Zimbabwe to the world.</p>
+              </div>
+            </div>
+          </nav>
+        </>
       )}
       {searchOpen && (
         <div
@@ -551,7 +664,13 @@ export function SiteHeader() {
           <div className="site-search-panel-inner">
             <div className="site-search-heading">
               <p>Search Costbrand</p>
-              <Button variant="ghost" size="icon" className="site-search-close" aria-label="Close search" onClick={() => closeSearch(true)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="site-search-close"
+                aria-label="Close search"
+                onClick={() => closeSearch(true)}
+              >
                 <X aria-hidden="true" />
               </Button>
             </div>
@@ -571,8 +690,13 @@ export function SiteFooter() {
           <Link to="/" className="brand-lockup brand-lockup-inverse" aria-label="Costbrand home">
             <img className="footer-logo" src={assets.footerLogo} alt="Costbrand" loading="lazy" />
           </Link>
-          <p>A Zimbabwean company working across agriculture, horticulture, machinery and international sourcing.</p>
-          <Link to="/contact-us" className="footer-contact-link">Start a conversation <span aria-hidden="true">↗</span></Link>
+          <p>
+            A Zimbabwean company working across agriculture, horticulture, machinery and
+            international sourcing.
+          </p>
+          <Link to="/contact-us" className="footer-contact-link">
+            Start a conversation <span aria-hidden="true">↗</span>
+          </Link>
         </div>
         <div className="footer-links">
           <h2>Explore</h2>
@@ -606,8 +730,15 @@ export function ContactBlock() {
       <div className="content-width">
         <h2 id="contact-block-title">Tell us what you need.</h2>
         <div className="site-contact-actions">
-          <Link className="contact-block-primary" to="/contact-us">Send us a message</Link>
-          <a className="contact-block-secondary" href={`https://wa.me/?text=${message}`} target="_blank" rel="noreferrer">
+          <Link className="contact-block-primary" to="/contact-us">
+            Send us a message
+          </Link>
+          <a
+            className="contact-block-secondary"
+            href={`https://wa.me/?text=${message}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             <MessageCircle size={18} aria-hidden="true" /> WhatsApp
           </a>
           <a className="contact-block-secondary" href="mailto:info@costbrand.co.zw">
@@ -644,10 +775,21 @@ export function NotFoundPage() {
         <p className="not-found-code">404</p>
         <h1>That page has moved or never existed.</h1>
         <nav className="not-found-actions" aria-label="Suggested pages">
-          <Link className="not-found-link" to="/">Home</Link>
-          <Link className="not-found-link" to="/horticulture">Horticulture</Link>
-          <Link className="not-found-link" to="/contact-us">Contact</Link>
-          <a className="not-found-link" href={`https://wa.me/?text=${message}`} target="_blank" rel="noreferrer">
+          <Link className="not-found-link" to="/">
+            Home
+          </Link>
+          <Link className="not-found-link" to="/horticulture">
+            Horticulture
+          </Link>
+          <Link className="not-found-link" to="/contact-us">
+            Contact
+          </Link>
+          <a
+            className="not-found-link"
+            href={`https://wa.me/?text=${message}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             WhatsApp
           </a>
         </nav>
@@ -670,29 +812,4 @@ function whatsappMessage(pathname: string) {
     "/404": "Hi Costbrand, I couldn't find what I was looking for.",
   };
   return messages[pathname] ?? "Hi Costbrand, I'd like to know more.";
-}
-
-export function BackToTop() {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const update = () => setVisible(window.scrollY > 400);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-
-  return visible ? (
-    <Button
-      size="icon"
-      className="back-top"
-      aria-label="Back to top"
-      title="Back to top"
-      onClick={() => window.scrollTo({
-        top: 0,
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-      })}
-    >
-      <ArrowUp aria-hidden="true" />
-    </Button>
-  ) : null;
 }
