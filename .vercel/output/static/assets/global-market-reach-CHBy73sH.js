@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Dk72oS4N.js";import{c as t,r as n}from"./site-sections-CIDb1b1L.js";var r=e();function i(){return(0,r.jsxs)(`main`,{children:[(0,r.jsx)(t,{}),(0,r.jsx)(n,{})]})}export{i as component};

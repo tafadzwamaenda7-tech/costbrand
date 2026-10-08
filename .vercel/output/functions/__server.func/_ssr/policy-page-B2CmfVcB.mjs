@@ -1,0 +1,2787 @@
+import { r as __toESM } from "../_runtime.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/policy-page-B2CmfVcB.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var policies_default = {
+	"privacy-policy": [
+		{ "text": "\n" },
+		{ "text": "\n" },
+		{
+			"tag": "h1",
+			"href": null,
+			"children": [{ "text": "PRIVACY POLICY" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{
+				"tag": "strong",
+				"href": null,
+				"children": [{ "text": "Genesis Exotics Ltd" }]
+			}, { "text": " (“we”, “our”, or “us”) is committed to protecting and respecting your privacy." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website, contact us, or use our services." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "1. Who We Are" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics Ltd" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Email:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:lovemore@genesis-exotics.co.uk",
+						"children": [{ "text": "lovemore@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:sales@genesis-exotics.co.uk",
+						"children": [{ "text": "sales@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:admin@genesis-exotics.co.uk",
+						"children": [{ "text": "admin@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Telephone:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7471 312213" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+ 44 7394 507367" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics Ltd is the data controller responsible for your personal information." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "2. Information We Collect" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We may collect and process the following information:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Information You Provide" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Name" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Company name" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Email address" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Telephone number" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Business address" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Enquiries submitted through our contact forms" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Any information provided when communicating with us" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Information Collected Automatically" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "When you visit our website, we may collect:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "IP address" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Browser type and version" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Device information" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Pages visited" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Date and time of visits" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Website usage statistics" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "3. How We Use Your Information" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We use your information to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Respond to enquiries and requests" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Provide quotations and product information" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Manage customer and supplier relationships" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Deliver our services" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Improve our website and user experience" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Comply with legal and regulatory obligations" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Communicate business updates where appropriate" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "4. Legal Basis for Processing" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We process personal data under one or more of the following lawful bases:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Your consent" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Performance of a contract" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Compliance with legal obligations" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Legitimate business interests" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "5. Sharing Your Information" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We do not sell your personal information." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We may share information with:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Logistics and transport partners" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Professional advisers" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Regulatory authorities where required by law" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Website hosting and IT service providers" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "All third parties are required to protect your information and process it lawfully." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "6. International Data Transfers" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "As an international sourcing and distribution business, some information may be processed outside the United Kingdom." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Where data is transferred internationally, we take appropriate safeguards to ensure compliance with UK data protection laws." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "7. Data Retention" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We retain personal information only for as long as necessary to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Provide services" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Maintain business records" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Meet legal and regulatory obligations" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Resolve disputes" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "When information is no longer required, it is securely deleted or anonymised." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "8. Your Rights" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Under UK GDPR, you have the right to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Access your personal data" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Correct inaccurate information" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Request deletion of your information" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Restrict processing" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Object to processing" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Request transfer of your data" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Withdraw consent where applicable" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "To exercise any of these rights, please contact us using the details below." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "9. Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Our website may use cookies to improve functionality and user experience." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Cookies help us:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Understand website traffic" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Improve website performance" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Remember user preferences" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "You can control cookie settings through your browser at any time." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "10. Data Security" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We implement appropriate technical and organisational measures to protect personal information from:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Unauthorised access" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Loss" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Misuse" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Alteration" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Disclosure" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "While no internet transmission is completely secure, we take reasonable steps to safeguard your data." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "11. Third-Party Websites" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Our website may contain links to third-party websites." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We are not responsible for the privacy practices or content of external websites and encourage users to review their privacy policies." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "12. Contact Us" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "If you have any questions regarding this Privacy Policy or your personal information, please contact:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics Ltd" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Email:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:lovemore@genesis-exotics.co.uk",
+						"children": [{ "text": "lovemore@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:sales@genesis-exotics.co.uk",
+						"children": [{ "text": "sales@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:admin@genesis-exotics.co.uk",
+						"children": [{ "text": "admin@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Telephone:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7471 312213" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+ 44 7394 507367" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "13. Complaints" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "If you are dissatisfied with how we handle your personal information, you have the right to lodge a complaint with the Information Commissioner’s Office (ICO):" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [
+				{ "text": "Information Commissioner’s Office (ICO)" },
+				{
+					"tag": "br",
+					"href": null,
+					"children": []
+				},
+				{ "text": "Website: " },
+				{
+					"tag": "a",
+					"href": "http://www.ico.org.uk/",
+					"children": [{ "text": "www.ico.org.uk" }]
+				}
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "14. Changes to This Privacy Policy" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We may update this Privacy Policy from time to time." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Any changes will be posted on this page together with the revised effective date." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{
+				"tag": "strong",
+				"href": null,
+				"children": [{ "text": "Last Updated:" }]
+			}, { "text": " June 2026" }]
+		},
+		{ "text": "\n" },
+		{ "text": "\n" }
+	],
+	"terms-and-conditions": [
+		{ "text": "\n" },
+		{ "text": "\n" },
+		{
+			"tag": "h1",
+			"href": null,
+			"children": [{ "text": "TERMS AND CONDITIONS" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{
+				"tag": "strong",
+				"href": null,
+				"children": [{ "text": "Genesis Exotics Ltd" }]
+			}]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Last Updated: June 2026" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "1. Introduction" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These Terms and Conditions govern the supply of products and services by Genesis Exotics Ltd (“Genesis Exotics”, “we”, “our”, or “us”) to customers (“Customer”, “you”, or “your”)." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "By placing an order with Genesis Exotics, you agree to be bound by these Terms and Conditions." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "2. Company Information" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics Ltd" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Email:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:lovemore@genesis-exotics.co.uk",
+						"children": [{ "text": "lovemore@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:sales@genesis-exotics.co.uk",
+						"children": [{ "text": "sales@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:admin@genesis-exotics.co.uk",
+						"children": [{ "text": "admin@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Telephone:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7471 312213" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7394 507367" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "3. Products" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics supplies fresh fruits, vegetables, herbs and other produce sourced from approved growers and suppliers worldwide." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "All products are supplied subject to seasonal availability." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Images, descriptions and specifications shown on our website or marketing materials are for illustrative purposes only." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "4. Orders" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Orders may be placed by email, telephone or other agreed communication channels." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "An order becomes binding only when accepted by Genesis Exotics." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We reserve the right to refuse or cancel orders at our discretion, including where products are unavailable or pricing errors have occurred." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "5. Pricing" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "All prices are subject to confirmation at the time of order." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Prices may change without prior notice due to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Seasonal market conditions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Exchange rate fluctuations" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Freight costs" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Supply chain disruptions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Government duties and taxes" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Unless otherwise stated, prices exclude VAT and any applicable duties." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "6. Payment Terms" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Payment terms shall be agreed between Genesis Exotics and the Customer." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Unless otherwise agreed in writing:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Payment is due within 30 days of invoice date." }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Late payments may incur interest under the Late Payment of Commercial Debts (Interest) Act 1998." }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Genesis Exotics reserves the right to suspend future deliveries until outstanding balances are settled." }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "7. Delivery" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Delivery dates are estimates only." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "While every effort is made to deliver products on time, Genesis Exotics shall not be liable for delays caused by:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Weather conditions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Customs inspections" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Transportation disruptions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Supplier delays" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Force majeure events" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Risk in the products passes to the Customer upon delivery." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "8. Inspection and Claims" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Customers must inspect products immediately upon delivery." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Any shortages, damage, quality concerns or discrepancies must be reported within:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "24 hours of delivery for fresh produce" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "48 hours for administrative discrepancies" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Failure to notify us within this period may result in claims being rejected." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Supporting photographs and relevant documentation may be requested." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "9. Fresh Produce Quality" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Fresh produce is a perishable product." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Natural variations in:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Size" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Shape" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Colour" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Weight" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Appearance" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "do not constitute defects where products remain commercially acceptable." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics will take all reasonable steps to ensure products meet agreed specifications at the time of dispatch." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "10. Product Availability" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Product availability may vary due to seasonal and agricultural conditions." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics reserves the right to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Substitute equivalent products" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Amend quantities" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Modify delivery schedules" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "where necessary." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Customers will be informed where practical." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "11. Retention of Title" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Ownership of products remains with Genesis Exotics until full payment has been received." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Until ownership transfers:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Products must be stored separately where possible." }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Customers must not pledge or charge products as security." }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Genesis Exotics may recover unpaid goods where legally permitted." }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "12. Limitation of Liability" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "To the fullest extent permitted by law:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics shall not be liable for:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Loss of profit" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Loss of business" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Indirect or consequential losses" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Loss arising from delays beyond our reasonable control" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Our total liability shall not exceed the value of the products supplied under the relevant order." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Nothing in these Terms excludes liability for death, personal injury, fraud or any liability that cannot be excluded under applicable law." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "13. Force Majeure" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics shall not be liable for failure or delay in performance caused by events beyond reasonable control, including:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Natural disasters" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Floods" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Droughts" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Pandemics" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Labour disputes" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Transport disruptions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Government restrictions" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "War or civil unrest" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "14. Intellectual Property" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "All website content, logos, branding, images and marketing materials remain the property of Genesis Exotics unless otherwise stated." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "No content may be reproduced without prior written permission." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "15. Website Use" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Users agree not to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Misuse the website" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Attempt unauthorised access" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Introduce malicious software" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Interfere with website functionality" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics reserves the right to restrict access where misuse is suspected." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "16. Data Protection" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Personal information provided to Genesis Exotics will be processed in accordance with our Privacy Policy and applicable UK data protection legislation." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "17. Governing Law" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These Terms and Conditions shall be governed by and interpreted in accordance with the laws of England and Wales." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "18. Amendments" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics reserves the right to amend these Terms and Conditions at any time." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Updated versions will be published on our website and become effective immediately upon publication." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "19. Contact Information" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics Ltd" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Email:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:lovemore@genesis-exotics.co.uk",
+						"children": [{ "text": "lovemore@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:sales@genesis-exotics.co.uk",
+						"children": [{ "text": "sales@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:admin@genesis-exotics.co.uk",
+						"children": [{ "text": "admin@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Telephone:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7471 312213" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7394 507367" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [
+				{ "text": "Website:" },
+				{
+					"tag": "br",
+					"href": null,
+					"children": []
+				},
+				{
+					"tag": "a",
+					"href": "http://www.genesis-exotics.co.uk/",
+					"children": [{ "text": "www.genesis-exotics.co.uk" }]
+				}
+			]
+		},
+		{ "text": "\n" }
+	],
+	"cookie-policy": [
+		{ "text": "\n" },
+		{
+			"tag": "h1",
+			"href": null,
+			"children": [{ "text": "COOKIE POLICY" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{
+				"tag": "strong",
+				"href": null,
+				"children": [{ "text": "Genesis Exotics Ltd" }]
+			}]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Last Updated: June 2026" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "1. Introduction" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "This Cookie Policy explains how Genesis Exotics Ltd (“Genesis Exotics”, “we”, “our”, or “us”) uses cookies and similar technologies on our website." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "By continuing to use our website, you agree to our use of cookies in accordance with this Cookie Policy." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "You may withdraw or modify your consent at any time through your browser settings or cookie preferences." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "2. What Are Cookies?" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Cookies are small text files stored on your computer, tablet or mobile device when you visit a website." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Cookies help websites function efficiently, remember preferences and provide information about how visitors use a website." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Cookies do not typically identify you personally but may identify your device or browser." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "3. How We Use Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics uses cookies to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Ensure the website functions properly" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Improve website performance" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Remember user preferences" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Analyse website traffic and visitor behaviour" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Enhance user experience" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Maintain website security" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "4. Types of Cookies We Use" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Strictly Necessary Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These cookies are essential for the operation of our website and cannot be switched off." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Examples include:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Security cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Session management cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Form submission functionality" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Website navigation features" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Without these cookies, certain parts of the website may not function correctly." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Performance and Analytics Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These cookies help us understand how visitors use our website." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Information collected may include:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Number of visitors" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Pages visited" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Time spent on pages" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Traffic sources" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "User interactions" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "This information is aggregated and anonymous." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Examples may include:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Google Analytics" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Website traffic monitoring tools" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Functionality Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These cookies allow the website to remember choices you make, such as:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Language preferences" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Form information" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "User settings" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These cookies improve the browsing experience but are not essential." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h3",
+			"href": null,
+			"children": [{ "text": "Marketing and Advertising Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "If used, these cookies help deliver relevant advertising and measure campaign effectiveness." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Examples may include:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Google Ads" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Meta (Facebook) Pixel" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "LinkedIn Insight Tag" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Marketing cookies will only be activated where consent has been provided." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "5. Third-Party Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Some cookies may be placed by trusted third-party services integrated into our website." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Examples may include:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Google Analytics" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Google Maps" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "YouTube" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Social media platforms" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Website hosting providers" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "These third parties may collect information in accordance with their own privacy policies." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Genesis Exotics does not control third-party cookies." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "6. Managing Cookies" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "You can manage or disable cookies through your browser settings." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Most browsers allow you to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "View stored cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Delete cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Block cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Restrict specific cookie categories" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Please note that disabling cookies may affect website functionality." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Helpful guides are available through:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Google Chrome" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Microsoft Edge" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Mozilla Firefox" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Safari" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "7. Cookie Consent" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "When visiting our website, you may be presented with a cookie banner allowing you to:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Accept all cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Reject non-essential cookies" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Customise cookie preferences" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Your preferences can be changed at any time." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "8. Changes to This Policy" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "We may update this Cookie Policy from time to time to reflect:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Legal requirements" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Technology updates" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "Changes to our website" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Any revisions will be published on this page." }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "9. Contact Us" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "If you have any questions regarding our use of cookies, please contact:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{
+				"tag": "strong",
+				"href": null,
+				"children": [{ "text": "Genesis Exotics Ltd" }]
+			}]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Email:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:lovemore@genesis-exotics.co.uk",
+						"children": [{ "text": "lovemore@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:sales@genesis-exotics.co.uk",
+						"children": [{ "text": "sales@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{
+						"tag": "a",
+						"href": "mailto:admin@genesis-exotics.co.uk",
+						"children": [{ "text": "admin@genesis-exotics.co.uk" }]
+					}]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Telephone:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "ul",
+			"href": null,
+			"children": [
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7471 312213" }]
+				},
+				{ "text": "\n" },
+				{
+					"tag": "li",
+					"href": null,
+					"children": [{ "text": "+44 7394 507367" }]
+				},
+				{ "text": "\n" }
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [
+				{ "text": "Website:" },
+				{
+					"tag": "br",
+					"href": null,
+					"children": []
+				},
+				{
+					"tag": "a",
+					"href": "http://www.genesis-exotics.co.uk/",
+					"children": [{ "text": "www.genesis-exotics.co.uk" }]
+				}
+			]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "hr",
+			"href": null,
+			"children": []
+		},
+		{ "text": "\n" },
+		{
+			"tag": "h2",
+			"href": null,
+			"children": [{ "text": "10. Further Information" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "For more information about cookies and your data protection rights, please visit:" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Information Commissioner’s Office (ICO)" }]
+		},
+		{ "text": "\n" },
+		{
+			"tag": "p",
+			"href": null,
+			"children": [{ "text": "Website: " }, {
+				"tag": "a",
+				"href": "http://www.ico.org.uk/",
+				"children": [{ "text": "www.ico.org.uk" }]
+			}]
+		},
+		{ "text": "\n" },
+		{ "text": "\n" }
+	]
+};
+var allowedTags = /* @__PURE__ */ new Set([
+	"h1",
+	"h2",
+	"h3",
+	"p",
+	"ul",
+	"ol",
+	"li",
+	"hr",
+	"strong",
+	"em",
+	"a"
+]);
+function safeHref(href) {
+	if (!href) return void 0;
+	if (href.startsWith("/") && !href.startsWith("//")) return href;
+	try {
+		const url = new URL(href);
+		return [
+			"https:",
+			"http:",
+			"mailto:",
+			"tel:"
+		].includes(url.protocol) ? href : void 0;
+	} catch {
+		return;
+	}
+}
+function renderNode(n, key) {
+	if (n.text !== void 0) return n.text;
+	if (!n.tag || !allowedTags.has(n.tag)) return null;
+	const props = n.tag === "a" ? {
+		key,
+		href: safeHref(n.href)
+	} : { key };
+	return (0, import_react.createElement)(n.tag, props, ...(n.children ?? []).map(renderNode));
+}
+function PolicyPage({ slug }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
+		className: "policy-page",
+		children: policies_default[slug].map(renderNode)
+	});
+}
+//#endregion
+export { PolicyPage as t };

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Dk72oS4N.js";import{t}from"./policy-page-BC2wdDWg.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`privacy-policy`});export{r as component};

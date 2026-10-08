@@ -1,5 +1,5 @@
 ﻿import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,19 +32,54 @@ function Index() {
   );
 }
 
-const heroSlides = [
+type HeroLinkItem = { label: string; href: string };
+
+const heroSlides: {
+  src: string;
+  alt: string;
+  caption: string;
+  title: string;
+  accent: string;
+  subtitle: string;
+  primary: HeroLinkItem;
+  secondary: HeroLinkItem;
+}[] = [
   {
     src: assets.machineField,
     alt: "Crates of harvested peas loaded for transport from a Zimbabwean farm.",
+    caption: "Pea harvest · Zimbabwe",
+    title: "Growing Zimbabwe.",
+    accent: "Connecting Global Markets.",
+    subtitle:
+      "From farm to market, and from Zimbabwe to the world — we produce, source and move agricultural goods that global buyers can rely on.",
+    primary: { label: "Start a conversation", href: "/contact-us" },
+    secondary: { label: "Explore our work", href: "#business" },
   },
   {
     src: assets.downloadNine,
     alt: "Agricultural machinery and produce handling for Zimbabwean operations.",
+    caption: "Field machinery",
+    title: "Machinery built for",
+    accent: "modern farming.",
+    subtitle:
+      "Sales, hire and workshop support for tractors, harvesters and implements that keep Zimbabwean farms running through every season.",
+    primary: { label: "Explore machinery", href: "/machinery" },
+    secondary: { label: "International sourcing", href: "/international-sourcing" },
   },
-  { src: assets.fieldSunset, alt: "Rows of peas flowering at golden hour on a Costbrand farm." },
+  {
+    src: assets.fieldSunset,
+    alt: "Rows of peas flowering at golden hour on a Costbrand farm.",
+    caption: "Pea crop at golden hour",
+    title: "Horticulture grown",
+    accent: "for global tables.",
+    subtitle:
+      "Peas, beans and leafy crops cultivated to export standards — traceable from plot to port, harvest after harvest.",
+    primary: { label: "Explore horticulture", href: "/horticulture" },
+    secondary: { label: "See our projects", href: "/projects" },
+  },
 ];
 
-const HERO_AUTOPLAY_DELAY = 7000;
+const HERO_AUTOPLAY_DELAY = 4500;
 
 function HomeHero() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -78,6 +113,8 @@ function HomeHero() {
   const goToSlide = (index: number) => {
     setActiveSlide(((index % heroSlides.length) + heroSlides.length) % heroSlides.length);
   };
+
+  const activeSlideData = heroSlides[activeSlide] ?? heroSlides[0]!;
 
   return (
     <section
@@ -121,43 +158,50 @@ function HomeHero() {
       ))}
       <div className="home-hero-shade" />
       <div className="content-width home-hero-content">
-        <h1>
-          Growing Zimbabwe.
-          <br />
-          <em>Connecting Global Markets.</em>
-        </h1>
-        <p className="home-hero-supporting">From Farm to Market. From Zimbabwe to the World.</p>
-        <p className="home-hero-description">
-          We produce agricultural and horticultural products, provide modern machinery and connect
-          farmers and businesses with reliable international suppliers and markets.
-        </p>
-        <p className="home-hero-pillars">
-          Agriculture <span>•</span> Horticulture <span>•</span> Machinery <span>•</span>{" "}
-          International Sourcing
-        </p>
-        <div className="home-hero-actions">
-          <Button asChild className="button-primary">
-            <Link to="/contact-us">
-              Start a conversation <ArrowUpRight size={17} aria-hidden="true" />
-            </Link>
-          </Button>
-          <a className="hero-scroll-link" href="#business">
-            Explore our work <ArrowDown size={15} aria-hidden="true" />
-          </a>
+        <div className="home-hero-copy" key={activeSlide}>
+          <h1>
+            {activeSlideData.title}
+            <em>{activeSlideData.accent}</em>
+          </h1>
+          <p className="home-hero-lead">{activeSlideData.subtitle}</p>
+          <div className="home-hero-actions">
+            <HeroLink item={activeSlideData.primary} kind="primary" />
+            <HeroLink item={activeSlideData.secondary} kind="ghost" />
+          </div>
         </div>
       </div>
-      <div className="home-hero-dots" role="group" aria-label="Choose hero image">
-        {heroSlides.map((slide, index) => (
-          <button
-            key={slide.src}
-            type="button"
-            className={activeSlide === index ? "is-active" : ""}
-            aria-label={`Show slide ${index + 1}`}
-            aria-pressed={activeSlide === index}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
+      <div className="content-width home-hero-rail">
+        <p className="home-hero-caption" aria-hidden="true">
+          {activeSlideData.caption}
+        </p>
       </div>
     </section>
+  );
+}
+
+function HeroLink({ item, kind }: { item: HeroLinkItem; kind: "primary" | "ghost" }) {
+  const label = (
+    <>
+      {item.label}
+      <ArrowUpRight size={17} aria-hidden="true" />
+    </>
+  );
+
+  if (item.href.startsWith("#")) {
+    return (
+      <a className={kind === "primary" ? "button-primary" : "button-ghost"} href={item.href}>
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <Button
+      asChild
+      variant="ghost"
+      className={kind === "primary" ? "button-primary" : "button-ghost"}
+    >
+      <Link to={item.href as "/contact-us"}>{label}</Link>
+    </Button>
   );
 }
