@@ -254,7 +254,7 @@ export function Plot68CaseStudy({
             <>
               <p>Case study</p>
               <h2 id="plot68-title">
-                Plot 68 <span aria-hidden="true">→</span> England &amp; the Netherlands
+                Plot 68 <span aria-hidden="true">→</span> Europe
               </h2>
             </>
           )}
@@ -274,12 +274,12 @@ export function Plot68CaseStudy({
         )}
         <p>
           {isAgriculture
-            ? "In 2025, Costbrand produced and prepared peas at Plot 68 for export to England and the Netherlands. The crop moved from field to cold chain to international market."
-            : "In 2025, Costbrand exported peas from Zimbabwe to England and the Netherlands — from our fields, through our packing process, to European buyers."}
+            ? "In 2026, Costbrand produced and prepared peas at Plot 68 for export to Europe. The crop moved from field to cold chain to international market."
+            : "In 2026, Costbrand exported peas from Zimbabwe to Europe — from our fields, through our packing process, to European buyers."}
         </p>
         <dl className={`plot68-stats${isAgriculture ? " plot68-stats-four" : ""}`}>
           <div>
-            <dt>2025</dt>
+            <dt>2026</dt>
             <dd>Exported</dd>
           </div>
           {isAgriculture ? (
@@ -289,19 +289,19 @@ export function Plot68CaseStudy({
                 <dd>From Plot 68</dd>
               </div>
               <div>
-                <dt>2 destinations</dt>
-                <dd>England &amp; the Netherlands</dd>
+                <dt>1 destination</dt>
+                <dd>Europe</dd>
               </div>
               <div>
-                <dt>England &amp; Netherlands</dt>
-                <dd>European markets</dd>
+                <dt>Europe</dt>
+                <dd>Export market</dd>
               </div>
             </>
           ) : (
             <>
               <div>
-                <dt>2 markets</dt>
-                <dd>England &amp; the Netherlands</dd>
+                <dt>1 market</dt>
+                <dd>Europe</dd>
               </div>
               <div>
                 <dt>1 shipment</dt>
@@ -555,17 +555,17 @@ export function HorticulturePage() {
           <div className="horticulture-market-cards">
             <article>
               <span aria-hidden="true">01</span>
-              <h3>England</h3>
+              <h3>Europe</h3>
               <p>Fresh produce</p>
             </article>
             <article>
               <span aria-hidden="true">02</span>
-              <h3>The Netherlands</h3>
+              <h3>Global markets</h3>
               <p>Fresh produce</p>
             </article>
           </div>
           <p className="horticulture-market-proof">
-            In 2025, Costbrand exported peas from Zimbabwe to England and the Netherlands.
+            In 2026, Costbrand exported peas from Zimbabwe to Europe.
           </p>
         </div>
       </section>
