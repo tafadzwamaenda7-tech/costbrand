@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-Dk72oS4N.js";import{t}from"./policy-page-BC2wdDWg.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`cookie-policy`});export{r as component};
