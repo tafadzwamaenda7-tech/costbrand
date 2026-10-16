@@ -10,6 +10,8 @@ const primaryLinks = [
   ["Horticulture", "/horticulture"],
   ["Machinery", "/machinery"],
   ["International Sourcing", "/international-sourcing"],
+  ["Projects", "/projects"],
+  ["Markets", "/global-market-reach"],
 ] as const;
 
 const mobileLinks = primaryLinks;
@@ -691,8 +693,7 @@ export function SiteFooter() {
             <img className="footer-logo" src={assets.footerLogo} alt="Costbrand" loading="lazy" />
           </Link>
           <p>
-            A Zimbabwean company working across agriculture, horticulture, machinery and
-            international sourcing.
+            From Farm to Market. From Zimbabwe to the World.
           </p>
           <Link to="/contact-us" className="footer-contact-link">
             Start a conversation <span aria-hidden="true">↗</span>
@@ -715,8 +716,8 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="content-width footer-bottom">
-        <span>© {new Date().getFullYear()} Costbrand Private Limited</span>
-        <span>Growing Zimbabwe. Connecting global markets.</span>
+        <span>© {new Date().getFullYear()} Costbrand Enterprises (Private) Limited</span>
+        <span>Growing Zimbabwe. Connecting Global Markets.</span>
       </div>
     </footer>
   );

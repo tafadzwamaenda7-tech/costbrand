@@ -53,15 +53,15 @@ const pillars = [
     alt: "Freshly picked sugar snap peas",
   },
   {
-    name: "Agricultural Machinery",
-    copy: "Providing farmers with access to modern agricultural machinery and equipment.",
+    name: "Machinery",
+    copy: "Tractors, implements, planters, harvesting equipment, irrigation systems and processing machinery.",
     to: "/machinery" as const,
     image: assets.downloadNine,
     alt: "Machinery and produce handling for a Zimbabwean agricultural operation.",
   },
   {
     name: "International Sourcing",
-    copy: "We find it. We verify it. We source it. We bring it to you.",
+    copy: "Finding, verifying and sourcing machinery, equipment and agricultural products internationally.",
     to: "/international-sourcing" as const,
     image: assets.globalSourcing,
     alt: "A Costbrand pea field representing its international supply chain",
@@ -103,11 +103,11 @@ export function PillarsSection() {
       <div className="content-width">
         <div className="section-heading-row">
           <div>
-            <h2 className="display-heading">One connected view of agriculture.</h2>
+            <h2 className="display-heading">OUR FOUR CORE BUSINESS AREAS</h2>
           </div>
           <p className="section-lead">
-            Costbrand brings together four related areas of work, from production and equipment to
-            market connections.
+            Costbrand brings together agriculture, horticulture, machinery and international sourcing
+            to connect Zimbabwean production with global markets.
           </p>
         </div>
         <div className="pillar-grid">
@@ -136,14 +136,13 @@ export function ZimbabweStatement() {
     <section className="zimbabwe-statement">
       <div className="content-width statement-inner">
         <p className="statement-text" data-reveal="pop">
-          Grow with the land.
+          Zimbabwe has the land. Zimbabwe has the climate. Zimbabwe has the farmers.
           <br />
-          <em>Connect with the world.</em>
+          <em>Costbrand builds the connection.</em>
         </p>
         <span className="statement-rule" />
         <p className="statement-note">
-          A Zimbabwean company working across agriculture, horticulture, machinery and international
-          sourcing.
+          From Farm to Market. From Zimbabwe to the World.
         </p>
       </div>
     </section>
@@ -359,30 +358,56 @@ const homeCrops = [
 
 export function HomeHorticultureSpotlight() {
   return (
-    <section className="home-horticulture section-pad">
+    <section className="home-horticulture section-pad" aria-labelledby="home-produce-title">
       <div className="content-width">
-        <h2 className="display-heading">From Zimbabwe to the World</h2>
+        <header className="home-horticulture-head">
+          <div className="home-horticulture-heading">
+            <p className="section-eyebrow">Horticulture</p>
+            <h2 id="home-produce-title" className="display-heading">
+              From Zimbabwe to the World
+            </h2>
+          </div>
+          <p className="section-lead home-horticulture-lead">
+            Fresh produce grown on Zimbabwean soil and prepared for local and international
+            markets — cultivated with care, harvested at the right moment and packed for the
+            journey ahead.
+          </p>
+        </header>
+
         <div className="home-crop-mosaic">
-          {homeCrops.map(([name, image, alt]) => (
+          {homeCrops.map(([name, image, alt], index) => (
             <Link
               key={name}
-              className={`home-crop-tile crop-${name.toLowerCase()}`}
+              className="home-crop-tile"
               to="/horticulture"
               aria-label={`Explore Horticulture — ${name}`}
             >
               <img src={image} alt={alt} loading="lazy" />
-              <span>{name}</span>
+              <span className="home-crop-tile-scrim" aria-hidden="true" />
+              <span className="home-crop-tile-body">
+                <span className="home-crop-tile-index">{String(index + 1).padStart(2, "0")}</span>
+                <span className="home-crop-tile-name">{name}</span>
+                <span className="home-crop-tile-note">{alt}</span>
+              </span>
             </Link>
           ))}
+
+          <Link className="home-crop-tile home-crop-cta" to="/horticulture">
+            <span className="home-crop-tile-body">
+              <span className="home-crop-tile-index">Full range</span>
+              <span className="home-crop-tile-name">Explore all produce</span>
+            </span>
+            <span className="home-crop-cta-arrow" aria-hidden="true">
+              <ArrowUpRight size={20} />
+            </span>
+          </Link>
         </div>
+
         <div className="home-horticulture-statement" data-stagger>
           <p>Zimbabwe has the land, the climate, the farmers.</p>
           <p>
             <strong>Costbrand builds the connection.</strong>
           </p>
-          <Link className="button-primary" to="/horticulture">
-            Explore Horticulture <ArrowUpRight size={16} aria-hidden="true" />
-          </Link>
         </div>
       </div>
     </section>
@@ -541,8 +566,7 @@ export function HorticulturePage() {
       <section className="horticulture-intro">
         <p>Growing quality horticultural products for Zimbabwean and international markets.</p>
         <p>
-          Costbrand will seek to develop commercially viable horticultural production for both
-          domestic consumption and export markets.
+          Costbrand develops commercially viable horticultural production for local, regional and international markets.
         </p>
       </section>
       <Plot68CaseStudy />
@@ -572,11 +596,10 @@ export function HorticulturePage() {
       <section className="horticulture-closing-band">
         <div className="content-width horticulture-closing-inner">
           <p className="section-eyebrow">Horticulture</p>
-          <h2 data-reveal="drop">
-            Our goal is to grow quality horticultural products for Zimbabwean and international
-            markets.
-          </h2>
-          <p>Talk to us about your produce requirements.</p>
+              <h2 data-reveal="drop">
+                FROM ZIMBABWE TO THE WORLD
+              </h2>
+              <p>Quality horticultural products developed for Zimbabwean and international markets. Talk to us about your produce requirements.</p>
           <div className="horticulture-closing-actions">
             <Link to="/contact-us" className="button-primary">
               Make a produce enquiry <ArrowUpRight size={17} aria-hidden="true" />
@@ -620,8 +643,7 @@ export function SourcingSection() {
         <div className="content-width sourcing-what-layout">
           <div>
             <h2>
-              Costbrand assists customers in sourcing agricultural machinery, equipment and products
-              from international markets.
+              WE FIND IT. WE VERIFY IT. WE SOURCE IT. WE BRING IT TO YOU.
             </h2>
           </div>
           <img
@@ -864,17 +886,17 @@ export function MarketsSection() {
             <article>
               <span>01</span>
               <h3>Zimbabwe</h3>
-              <p>Our home base for agricultural work and local partnerships.</p>
+              <p>Zimbabwe - our home base for agricultural production and local partnerships.</p>
             </article>
             <article>
               <span>02</span>
               <h3>Regional Africa</h3>
-              <p>Regional opportunities approached through relevant partners and requirements.</p>
+              <p>Regional market opportunities approached through relevant partners and requirements.</p>
             </article>
             <article>
               <span>03</span>
               <h3>International</h3>
-              <p>Buyer and supplier conversations that can connect Zimbabwe to wider markets.</p>
+              <p>Connecting Zimbabwean agricultural products with local, regional and international buyers.</p>
             </article>
           </div>
         </div>
@@ -907,7 +929,7 @@ const whyCostbrand = [
   {
     icon: ChartNoAxesCombined,
     title: "Commercial Agriculture",
-    copy: "We focus on agriculture as a business — not simply subsistence production.",
+    copy: "We focus on agriculture as a business.",
   },
   {
     icon: Route,
@@ -982,8 +1004,8 @@ export function AboutSection() {
       </section>
       <section className="about-brand-statement">
         <p data-reveal="pop">
-          Costbrand is an agricultural enterprise and international supply-chain company — not
-          simply an exporter or importer.
+          Zimbabwe has the land. Zimbabwe has the climate. Zimbabwe has the farmers.<br />
+          <strong>Costbrand builds the connection.</strong>
         </p>
       </section>
       <CrossLinkBand

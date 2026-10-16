@@ -6,7 +6,7 @@ export const Route = createFileRoute("/global-market-reach")({
   head: () =>
     siteMeta(
       "Markets",
-      "Costbrand connects Zimbabwean agricultural work with regional and international market conversations.",
+      "Costbrand connects Zimbabwean agricultural production with regional and international markets.",
     ),
   component: MarketsPage,
 });

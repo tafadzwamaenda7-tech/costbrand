@@ -67,18 +67,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Costbrand Private Limited" },
+      { title: "Costbrand Enterprises (Private) Limited" },
       {
         name: "description",
         content:
-          "Costbrand Private Limited is a Zimbabwean agricultural company working across agriculture, horticulture, machinery and international sourcing.",
+          "From Farm to Market. From Zimbabwe to the World. Costbrand is a Zimbabwean agricultural company bringing together agriculture, horticulture, machinery and international sourcing.",
       },
-      { name: "author", content: "Costbrand Private Limited" },
-      { property: "og:title", content: "Costbrand Private Limited" },
+      { name: "author", content: "Costbrand Enterprises (Private) Limited" },
+      { property: "og:title", content: "Costbrand Enterprises (Private) Limited" },
       {
         property: "og:description",
         content:
-          "Costbrand Private Limited is a Zimbabwean agricultural company working across agriculture, horticulture, machinery and international sourcing.",
+          "From Farm to Market. From Zimbabwe to the World. Costbrand is a Zimbabwean agricultural company bringing together agriculture, horticulture, machinery and international sourcing.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -142,6 +142,23 @@ const REVEAL_VARIANTS: ReadonlyArray<readonly [string, string]> = [
   [".contact-brand", "scale"],
   [".contact-form-content", "rise"],
   [".not-found-inner", "pop"],
+  [".home-closing-band p", "pop"],
+  [".statement-text", "pop"],
+  [".about-brand-statement p", "pop"],
+  [".plot68-band > div", "drop"],
+  [".section-heading-row > *", "rise"],
+  [".produce-intro > *", "rise"],
+  [".journey-heading > *", "rise"],
+  [".sourcing-hero h1", "drop"],
+  [".machinery-intro h2", "drop"],
+  [".about-story-layout > *", "rise"],
+  [".horticulture-closing-inner > *", "drop"],
+  [".cross-link-inner > *", "drop"],
+  ["section h1", "drop"],
+  ["section h2", "drop"],
+  ["section h3", "rise"],
+  ["section figure", "zoom"],
+  ["section img", "zoom"],
 ];
 
 function variantFor(target: HTMLElement) {
@@ -156,125 +173,133 @@ function RootComponent() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const targets: HTMLElement[] = [];
-    const assigned: HTMLElement[] = [];
     let observer: IntersectionObserver | undefined;
-    let frame: number | undefined;
-    let scheduleVisibilityCheck: (() => void) | undefined;
     const timer = window.setTimeout(() => {
       const main = document.querySelector<HTMLElement>(".site-content main");
       if (!main) return;
 
-      targets.push(
-        ...main.querySelectorAll<HTMLElement>(
-          [
-            ".page-intro-copy",
-            ".page-intro-image",
-            ".display-heading",
-            ".section-eyebrow",
-            ".section-lead",
-            ".pillar-card",
-            ".about-why-card",
-            ".focus-area-card",
-            ".connection-card",
-            ".home-crop-tile",
-            ".agriculture-focus-row",
-            ".service-item",
-            ".machinery-product-list > li",
-            ".horticulture-market-cards > article",
-            ".market-list > article",
-            ".sourcing-stepper > li",
-            ".process-list > li",
-            ".journey-list > li",
-            ".plot68-gallery > figure",
-            ".plot68-stats > div",
-            ".horticulture-intro > p",
-            ".agriculture-intro > h2",
-            ".machinery-intro > h2",
-            ".about-vision h2",
-            ".about-mission h2",
-            ".sourcing-trust > *",
-            ".policy-page > h1",
-            ".policy-page > h2",
-            ".contact-brand",
-            ".contact-form-content",
-            ".not-found-inner",
-            "[data-reveal]",
-            "[data-stagger] > *",
-          ].join(","),
-        ),
+      const elements = main.querySelectorAll<HTMLElement>(
+        [
+          ".page-intro-copy",
+          ".page-intro-image",
+          ".display-heading",
+          ".section-eyebrow",
+          ".section-lead",
+          ".pillar-card",
+          ".about-why-card",
+          ".focus-area-card",
+          ".connection-card",
+          ".home-crop-tile",
+          ".agriculture-focus-row",
+          ".service-item",
+          ".machinery-product-list > li",
+          ".horticulture-market-cards > article",
+          ".market-list > article",
+          ".sourcing-stepper > li",
+          ".process-list > li",
+          ".journey-list > li",
+          ".plot68-gallery > figure",
+          ".plot68-stats > div",
+          ".horticulture-intro > p",
+          ".agriculture-intro > h2",
+          ".machinery-intro > h2",
+          ".about-vision h2",
+          ".about-mission h2",
+          ".sourcing-trust > *",
+          ".policy-page > h1",
+          ".policy-page > h2",
+          ".contact-brand",
+          ".contact-form-content",
+          ".not-found-inner",
+          ".section-heading-row > *",
+          ".produce-intro > *",
+          ".journey-heading > *",
+          ".sourcing-hero h1",
+          ".sourcing-what-layout > *",
+          ".horticulture-closing-inner > *",
+          ".cross-link-inner > *",
+          ".home-horticulture-statement > *",
+          ".about-story-layout > *",
+          ".home-closing-band p",
+          ".statement-text",
+          ".about-brand-statement p",
+          ".plot68-band > div",
+          ".produce-name-list > li",
+          "[data-reveal]",
+          "[data-stagger] > *",
+        ].join(","),
       );
-      if (!targets.length) return;
 
-      const reveal = (target: Element) => {
-        target.classList.add("in-view");
-        observer?.unobserve(target);
-      };
-      if (typeof window.IntersectionObserver === "function") {
-        observer = new window.IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) reveal(entry.target);
-            });
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -4% 0px" },
-        );
-      }
-
-      targets.forEach((target) => {
+      const mark = (target: HTMLElement) => {
         const siblings = target.parentElement ? Array.from(target.parentElement.children) : [];
         const siblingIndex = Math.max(0, siblings.indexOf(target));
         target.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 6) * 65}ms`);
         if (!target.dataset["reveal"]) {
           target.dataset["reveal"] = variantFor(target);
-          assigned.push(target);
         }
         target.classList.add("reveal");
-        observer?.observe(target);
+        targets.push(target);
+      };
+
+      elements.forEach((target) => {
+        if (target.classList.contains("reveal")) return;
+        mark(target);
       });
 
-      const revealVisibleTargets = () => {
-        frame = undefined;
-        const threshold = window.innerHeight * 0.96;
-        targets.forEach((target) => {
-          if (target.classList.contains("in-view")) return;
-          const rect = target.getBoundingClientRect();
-          if (rect.top < threshold && rect.bottom > 0) reveal(target);
-        });
-      };
-      scheduleVisibilityCheck = () => {
-        if (frame !== undefined) return;
-        frame = window.requestAnimationFrame(revealVisibleTargets);
-      };
-      window.addEventListener("scroll", scheduleVisibilityCheck, { passive: true });
-      window.addEventListener("resize", scheduleVisibilityCheck);
-      scheduleVisibilityCheck();
-    }, 500);
+      const catchAll = main.querySelectorAll<HTMLElement>(
+        [
+          "section > .content-width > *",
+          "section > *:not(.content-width)",
+          "section h1",
+          "section h2",
+          "section h3",
+          "section figure",
+          "section img",
+          "section article",
+        ].join(","),
+      );
+
+      catchAll.forEach((target) => {
+        if (target.classList.contains("reveal")) return;
+        if (target.closest(".reveal")) return;
+        if (target.closest(".home-hero")) return;
+        if (target.querySelector(".reveal")) return;
+        mark(target);
+      });
+
+      if (typeof window.IntersectionObserver === "function" && targets.length > 0) {
+        observer = new window.IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer?.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -4% 0px" },
+        );
+        targets.forEach((target) => observer?.observe(target));
+      } else {
+        targets.forEach((target) => target.classList.add("in-view"));
+      }
+    }, 300);
 
     return () => {
       window.clearTimeout(timer);
-      if (frame !== undefined) window.cancelAnimationFrame(frame);
-      if (scheduleVisibilityCheck) {
-        window.removeEventListener("scroll", scheduleVisibilityCheck);
-        window.removeEventListener("resize", scheduleVisibilityCheck);
-      }
       observer?.disconnect();
-      targets.forEach((target) => {
-        target.classList.remove("reveal", "in-view");
-        target.style.removeProperty("--reveal-delay");
-      });
-      assigned.forEach((target) => {
-        delete target.dataset["reveal"];
-      });
     };
   }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ParallaxImages pathname={pathname} />
       <SiteHeader />
-      <div className="site-content">
+      <div className="site-content" key={pathname}>
         <Outlet />
       </div>
       {pathname !== "/contact-us" && <ContactBlock />}
@@ -282,4 +307,66 @@ function RootComponent() {
       <FloatingWhatsApp />
     </QueryClientProvider>
   );
+}
+
+function ParallaxImages({ pathname }: { pathname: string }) {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 700px)").matches) return;
+
+    const targets: HTMLElement[] = [];
+    let frame: number | undefined;
+
+    const collect = () => {
+      const main = document.querySelector<HTMLElement>(".site-content main");
+      if (!main) return;
+      main
+        .querySelectorAll<HTMLElement>(
+          ".plot68-gallery > figure img, .page-intro-image img, .connection-card > img",
+        )
+        .forEach((img) => {
+          if (img.hasAttribute("data-parallax")) return;
+          img.setAttribute("data-parallax", "");
+          targets.push(img);
+        });
+    };
+
+    const update = () => {
+      frame = undefined;
+      const viewport = window.innerHeight;
+      targets.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > viewport) return;
+        const center = rect.top + rect.height / 2;
+        const offset = (center - viewport / 2) / viewport;
+        img.style.setProperty("--parallax-y", `${(-offset * 26).toFixed(2)}px`);
+      });
+    };
+
+    const schedule = () => {
+      if (frame !== undefined) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    const timer = window.setTimeout(() => {
+      collect();
+      schedule();
+    }, 400);
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      window.clearTimeout(timer);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      targets.forEach((img) => {
+        img.removeAttribute("data-parallax");
+        img.style.removeProperty("--parallax-y");
+      });
+    };
+  }, [pathname]);
+
+  return null;
 }
