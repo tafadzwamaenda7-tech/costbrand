@@ -2,6 +2,7 @@
 @import "@fontsource-variable/inter";
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
+@import "./styles-enhancements.css";
 @source "../src";
 @custom-variant dark (&:is(.dark *));
 

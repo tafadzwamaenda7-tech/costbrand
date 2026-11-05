@@ -1,0 +1,901 @@
+
+/* ============================================================
+   APPLE-LEVEL ENHANCEMENT LAYER
+   Senior Developer Quality UI/UX Improvements
+   ============================================================ */
+
+/* --- Page Load Bar --- */
+@keyframes page-load-bar {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+.page-load-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--forest-soft) 50%, var(--gold) 100%);
+  background-size: 200% 100%;
+  transform-origin: left center;
+  animation:
+    page-load-bar 0.6s var(--ease-out-expo) forwards,
+    gradient-shift 2s linear infinite;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(185, 160, 108, 0.5);
+}
+@keyframes gradient-shift {
+  to { background-position: 200% center; }
+}
+
+/* --- Richer Scroll Reveal Variants --- */
+/* Extending the existing [data-scroll] .reveal system */
+
+[data-scroll] .reveal[data-reveal="slide-left"] {
+  transform: translate3d(-36px, 0, 0) scale(0.98);
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 0.9s var(--ease-out-expo) var(--reveal-delay, 0ms),
+    var(--reveal-interaction);
+}
+[data-scroll] .reveal[data-reveal="slide-right"] {
+  transform: translate3d(36px, 0, 0) scale(0.98);
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 0.9s var(--ease-out-expo) var(--reveal-delay, 0ms),
+    var(--reveal-interaction);
+}
+[data-scroll] .reveal[data-reveal="zoom-out"] {
+  transform: scale(1.12);
+  transition:
+    opacity 0.85s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 1.2s var(--ease-out-expo) var(--reveal-delay, 0ms),
+    var(--reveal-interaction);
+}
+[data-scroll] .reveal[data-reveal="blur-in"] {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(10px);
+  transition:
+    opacity 0.8s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 0.8s var(--ease-out-expo) var(--reveal-delay, 0ms),
+    filter 0.8s var(--ease-out) var(--reveal-delay, 0ms),
+    var(--reveal-interaction);
+}
+[data-scroll] .reveal[data-reveal="blur-in"].in-view {
+  filter: blur(0px);
+}
+
+/* --- Apple-quality Card Hover System --- */
+/* Richer card interactions with 3D depth hint */
+.pillar-card {
+  transform-style: preserve-3d;
+  perspective: 800px;
+  will-change: transform;
+  position: relative;
+}
+.pillar-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.14) 0%,
+    rgba(255,255,255,0.03) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 320ms var(--ease-out);
+  pointer-events: none;
+  z-index: 2;
+}
+.pillar-card:hover::after {
+  opacity: 1;
+}
+.pillar-card:hover {
+  transform: translateY(-10px) scale(1.008);
+  border-color: rgba(185, 160, 108, 0.35);
+  box-shadow:
+    0 2px 4px rgba(18, 58, 42, 0.04),
+    0 8px 16px rgba(18, 58, 42, 0.08),
+    0 24px 48px rgba(18, 58, 42, 0.14),
+    0 0 0 1px rgba(185, 160, 108, 0.12);
+}
+
+/* --- Bento Grid Layout Enhancements --- */
+/* Enhanced about-why bento with asymmetric hero card */
+.about-why-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-light);
+}
+.about-why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at top right, rgba(185, 160, 108, 0.12), transparent 70%);
+  pointer-events: none;
+}
+.about-why-card:nth-child(6) {
+  background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-soft) 100%);
+  color: white;
+}
+.about-why-card:nth-child(6) h3 {
+  color: var(--gold-pale);
+}
+.about-why-card:nth-child(6) p {
+  color: rgba(255,255,255,0.78);
+}
+.about-why-card:nth-child(6) > svg {
+  color: var(--gold);
+}
+.about-why-card:nth-child(6)::before {
+  background: radial-gradient(circle at top right, rgba(185, 160, 108, 0.2), transparent 70%);
+}
+
+/* Focus area card improvements */
+.focus-area-card {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  transition:
+    transform 300ms var(--ease-out-expo),
+    box-shadow 300ms ease;
+}
+.focus-area-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 8px 20px rgba(18, 58, 42, 0.1),
+    0 24px 44px rgba(18, 58, 42, 0.12);
+}
+.focus-area-card img {
+  transition: transform 550ms var(--ease-out-expo);
+}
+.focus-area-card:hover img {
+  transform: scale(1.07);
+}
+/* Featured first focus area card */
+.focus-area-card:nth-child(1) {
+  background: linear-gradient(to bottom, var(--forest-mist), white);
+}
+
+/* --- Stagger Delay Improvements (extend beyond 6 children) --- */
+/* More nuanced stagger for produce list */
+.produce-name-list > li:nth-child(1) { --reveal-delay: 0ms; }
+.produce-name-list > li:nth-child(2) { --reveal-delay: 55ms; }
+.produce-name-list > li:nth-child(3) { --reveal-delay: 110ms; }
+.produce-name-list > li:nth-child(4) { --reveal-delay: 165ms; }
+.produce-name-list > li:nth-child(5) { --reveal-delay: 220ms; }
+.produce-name-list > li:nth-child(6) { --reveal-delay: 275ms; }
+.produce-name-list > li:nth-child(7) { --reveal-delay: 330ms; }
+.produce-name-list > li:nth-child(8) { --reveal-delay: 385ms; }
+.produce-name-list > li:nth-child(9) { --reveal-delay: 440ms; }
+
+/* Journey list stagger */
+.journey-list > li:nth-child(1) { --reveal-delay: 0ms; }
+.journey-list > li:nth-child(2) { --reveal-delay: 80ms; }
+.journey-list > li:nth-child(3) { --reveal-delay: 160ms; }
+.journey-list > li:nth-child(4) { --reveal-delay: 240ms; }
+.journey-list > li:nth-child(5) { --reveal-delay: 320ms; }
+.journey-list > li:nth-child(6) { --reveal-delay: 400ms; }
+.journey-list > li:nth-child(7) { --reveal-delay: 480ms; }
+
+/* Sourcing stepper stagger */
+.sourcing-stepper > li:nth-child(1) { --reveal-delay: 0ms; }
+.sourcing-stepper > li:nth-child(2) { --reveal-delay: 65ms; }
+.sourcing-stepper > li:nth-child(3) { --reveal-delay: 130ms; }
+.sourcing-stepper > li:nth-child(4) { --reveal-delay: 195ms; }
+.sourcing-stepper > li:nth-child(5) { --reveal-delay: 260ms; }
+.sourcing-stepper > li:nth-child(6) { --reveal-delay: 325ms; }
+.sourcing-stepper > li:nth-child(7) { --reveal-delay: 390ms; }
+
+/* Focus area stagger */
+.focus-areas-grid > .focus-area-card:nth-child(1) { --reveal-delay: 0ms; }
+.focus-areas-grid > .focus-area-card:nth-child(2) { --reveal-delay: 60ms; }
+.focus-areas-grid > .focus-area-card:nth-child(3) { --reveal-delay: 120ms; }
+.focus-areas-grid > .focus-area-card:nth-child(4) { --reveal-delay: 180ms; }
+.focus-areas-grid > .focus-area-card:nth-child(5) { --reveal-delay: 240ms; }
+.focus-areas-grid > .focus-area-card:nth-child(6) { --reveal-delay: 300ms; }
+.focus-areas-grid > .focus-area-card:nth-child(7) { --reveal-delay: 360ms; }
+.focus-areas-grid > .focus-area-card:nth-child(8) { --reveal-delay: 420ms; }
+.focus-areas-grid > .focus-area-card:nth-child(9) { --reveal-delay: 480ms; }
+
+/* About why card stagger */
+.about-why-grid > .about-why-card:nth-child(1) { --reveal-delay: 0ms; }
+.about-why-grid > .about-why-card:nth-child(2) { --reveal-delay: 80ms; }
+.about-why-grid > .about-why-card:nth-child(3) { --reveal-delay: 160ms; }
+.about-why-grid > .about-why-card:nth-child(4) { --reveal-delay: 240ms; }
+.about-why-grid > .about-why-card:nth-child(5) { --reveal-delay: 320ms; }
+.about-why-grid > .about-why-card:nth-child(6) { --reveal-delay: 400ms; }
+
+/* Pillar card stagger */
+.pillar-grid > .pillar-card:nth-child(1) { --reveal-delay: 0ms; }
+.pillar-grid > .pillar-card:nth-child(2) { --reveal-delay: 90ms; }
+.pillar-grid > .pillar-card:nth-child(3) { --reveal-delay: 180ms; }
+.pillar-grid > .pillar-card:nth-child(4) { --reveal-delay: 270ms; }
+
+/* Crop mosaic stagger */
+.home-crop-mosaic > .home-crop-tile:nth-child(1) { --reveal-delay: 0ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(2) { --reveal-delay: 60ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(3) { --reveal-delay: 120ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(4) { --reveal-delay: 180ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(5) { --reveal-delay: 240ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(6) { --reveal-delay: 300ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(7) { --reveal-delay: 360ms; }
+.home-crop-mosaic > .home-crop-tile:nth-child(8) { --reveal-delay: 420ms; }
+
+/* Plot68 stats stagger */
+.plot68-stats > div:nth-child(1) { --reveal-delay: 0ms; }
+.plot68-stats > div:nth-child(2) { --reveal-delay: 100ms; }
+.plot68-stats > div:nth-child(3) { --reveal-delay: 200ms; }
+.plot68-stats > div:nth-child(4) { --reveal-delay: 300ms; }
+
+/* --- Richer Section Backgrounds --- */
+.pillars-section {
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(185, 160, 108, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(18, 58, 42, 0.05) 0%, transparent 45%),
+    var(--paper);
+}
+
+.about-why {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(217, 223, 210, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(185, 160, 108, 0.08) 0%, transparent 50%),
+    white;
+}
+
+.focus-areas-section {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(18, 58, 42, 0.04) 0%, transparent 60%),
+    var(--sage-pale);
+}
+
+.horticulture-markets {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(185, 160, 108, 0.06) 0%, transparent 50%),
+    white;
+}
+
+/* --- Improved Navigation Hover --- */
+/* Pill background on hover instead of just underline */
+.desktop-nav-item > a {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition:
+    color 180ms var(--ease-out),
+    background-color 180ms var(--ease-out);
+}
+.desktop-nav-item > a:hover,
+.desktop-nav-item > a:focus-visible {
+  background: rgba(23, 61, 50, 0.07);
+  color: var(--forest-deep);
+}
+
+/* --- Floating WhatsApp pulse ring --- */
+.floating-whatsapp {
+  position: relative;
+}
+.floating-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: rgba(37, 211, 102, 0.25);
+  animation: whatsapp-pulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes whatsapp-pulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* --- Richer HomeHero improvements --- */
+/* Animated gradient mask overlay */
+.home-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 10% 90%, rgba(185, 160, 108, 0.14) 0%, transparent 50%);
+  pointer-events: none;
+  animation: hero-glow-shift 8s ease-in-out infinite alternate;
+}
+@keyframes hero-glow-shift {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+/* Better hero slide dots indicators (if added) */
+.hero-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.4);
+  transition: width 300ms var(--ease-spring), background 300ms ease;
+  cursor: pointer;
+}
+.hero-dot.is-active {
+  width: 24px;
+  background: var(--gold);
+}
+
+/* --- Cross Link Band polish --- */
+.cross-link-band {
+  position: relative;
+  overflow: hidden;
+}
+.cross-link-band::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 160, 108, 0.4), transparent);
+}
+.cross-link-band::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+/* --- Contact block polish --- */
+.site-contact-block {
+  position: relative;
+  overflow: hidden;
+}
+.site-contact-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(18, 58, 42, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 50%, rgba(185, 160, 108, 0.1) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Contact block action buttons: subtle lift + glow on hover */
+.contact-block-primary {
+  position: relative;
+  overflow: hidden;
+  transition:
+    color 180ms var(--ease-out),
+    background-color 180ms var(--ease-out),
+    border-color 180ms var(--ease-out),
+    box-shadow 180ms var(--ease-out),
+    translate 180ms var(--ease-out);
+}
+.contact-block-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.contact-block-primary:hover::before {
+  opacity: 1;
+}
+.contact-block-primary:hover {
+  translate: 0 -2px;
+  box-shadow: 0 8px 24px rgba(18, 58, 42, 0.18);
+}
+
+/* --- Enhanced Footer --- */
+.site-footer {
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--forest-soft) 60%, var(--gold) 80%, transparent 100%);
+  opacity: 0.6;
+}
+
+.footer-layout {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.footer-links a {
+  position: relative;
+  color: var(--muted-ink);
+  transition: color 200ms var(--ease-out), padding-left 200ms var(--ease-out);
+}
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  width: 14px;
+  height: 1.5px;
+  background: var(--gold);
+  transition: transform 240ms var(--ease-out-expo);
+}
+.footer-links a:hover {
+  color: var(--forest);
+  padding-left: 20px;
+}
+.footer-links a:hover::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+/* --- Page Intro enhanced with parallax hint --- */
+.page-intro {
+  position: relative;
+  overflow: hidden;
+}
+.page-intro::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(185, 160, 108, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+  transform: rotate(-15deg);
+}
+
+/* --- Produce name list hover glow --- */
+.produce-name-list li {
+  position: relative;
+  overflow: hidden;
+}
+.produce-name-list li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(185, 160, 108, 0.06), transparent);
+  transform: translateX(-100%);
+  transition: transform 320ms var(--ease-out-expo);
+}
+.produce-name-list li:hover::before {
+  transform: translateX(0);
+}
+
+/* --- Machinery product list hover --- */
+.machinery-product-list li {
+  position: relative;
+  overflow: hidden;
+}
+.machinery-product-list li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 280ms var(--ease-out-expo);
+}
+.machinery-product-list li:hover::after {
+  transform: scaleY(1);
+  transform-origin: top center;
+}
+
+/* --- Plot68 gallery images hover zoom --- */
+.plot68-gallery figure {
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 300ms ease, transform 300ms var(--ease-out-expo);
+}
+.plot68-gallery figure:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-float);
+}
+.plot68-gallery img {
+  transition: transform 600ms var(--ease-out-expo);
+}
+.plot68-gallery figure:hover img {
+  transform: scale(1.06);
+}
+
+/* --- Home crop tile improved interactions --- */
+.home-crop-tile {
+  position: relative;
+  overflow: hidden;
+}
+.home-crop-tile img {
+  transition: transform 600ms var(--ease-out-expo);
+}
+.home-crop-tile:hover img {
+  transform: scale(1.07);
+}
+/* Shimmer sweep on hover */
+.home-crop-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0ms;
+}
+.home-crop-tile:hover::after {
+  transform: translateX(200%);
+  transition: transform 600ms ease;
+}
+
+/* --- Service item (projects) hover --- */
+.service-item {
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 220ms ease,
+    transform 220ms var(--ease-out-expo),
+    box-shadow 220ms ease;
+}
+.service-item:hover {
+  background: white;
+  transform: translateX(6px);
+  box-shadow: -4px 0 0 var(--gold), var(--shadow-card);
+}
+
+/* --- Market list card hover --- */
+.market-list article {
+  transition: background 220ms ease, transform 220ms var(--ease-out-expo);
+}
+.market-list article:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+/* --- Agriculture focus row image zoom on scroll into view --- */
+.agriculture-focus-row > img {
+  transition: transform 600ms var(--ease-out-expo), border-radius 400ms ease;
+  border-radius: var(--radius-sm);
+}
+.agriculture-focus-row.in-view > img {
+  border-radius: var(--radius-md);
+}
+.agriculture-focus-row:hover > img {
+  transform: scale(1.02);
+}
+
+/* --- Statement sections ambient glow animation --- */
+.zimbabwe-statement,
+.home-closing-band,
+.about-brand-statement {
+  isolation: isolate;
+}
+/* Animated ambient light sweep */
+@keyframes ambient-sweep {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Display heading visual upgrade --- */
+.display-heading {
+  position: relative;
+}
+
+/* --- Horticulture market cards hover upgrade --- */
+.horticulture-market-cards article {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 280ms var(--ease-out-expo),
+    box-shadow 280ms ease,
+    background 220ms ease;
+}
+.horticulture-market-cards article:hover {
+  transform: translateY(-6px);
+  background: var(--forest-mist);
+  box-shadow: 0 16px 36px rgba(18, 58, 42, 0.12);
+}
+.horticulture-market-cards h3 {
+  transition: color 200ms ease;
+}
+.horticulture-market-cards article:hover h3 {
+  color: var(--forest-deep);
+}
+
+/* --- Sourcing stepper trust step highlight --- */
+.sourcing-stepper > li.is-trust-step {
+  position: relative;
+  background: var(--gold-pale);
+  border-color: rgba(185, 160, 108, 0.4);
+}
+.sourcing-stepper > li.is-trust-step::before {
+  content: 'Key step';
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--forest-deep);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- Scroll progress indicator --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--forest-soft));
+  transform-origin: left center;
+  pointer-events: none;
+  box-shadow: 0 0 6px rgba(185, 160, 108, 0.4);
+}
+
+/* --- Animated section eyebrow line --- */
+.section-eyebrow::before {
+  animation: eyebrow-line 0.8s var(--ease-out-expo) both;
+}
+@keyframes eyebrow-line {
+  from { width: 0; opacity: 0; }
+  to   { width: 22px; opacity: 1; }
+}
+
+/* --- Smoother mobile nav --- */
+.mobile-nav {
+  /* Upgraded glass morphism */
+  -webkit-backdrop-filter: saturate(140%) blur(20px);
+  backdrop-filter: saturate(140%) blur(20px);
+}
+
+/* --- Enhanced button primary with shimmer --- */
+.button-primary {
+  position: relative;
+  overflow: hidden;
+}
+.button-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg);
+  transition: left 0s;
+}
+.button-primary:hover::after {
+  left: 150%;
+  transition: left 500ms ease;
+}
+
+/* --- Enhanced ghost button --- */
+.button-ghost {
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    translate 160ms var(--ease-out);
+}
+.button-ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.button-ghost:hover::before {
+  opacity: 1;
+}
+
+/* --- Page intro image enhanced --- */
+.page-intro-image {
+  position: relative;
+}
+.page-intro-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, transparent 60%, rgba(18, 58, 42, 0.12));
+  pointer-events: none;
+}
+
+/* --- horticulture-closing-band improved --- */
+.horticulture-closing-band {
+  position: relative;
+  overflow: hidden;
+}
+.horticulture-closing-band::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 50%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 65%);
+  pointer-events: none;
+  animation: closing-glow 6s ease-in-out infinite alternate;
+}
+@keyframes closing-glow {
+  from { opacity: 0.4; transform: scale(1); }
+  to   { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* --- Not found page upgrade --- */
+.not-found-code {
+  background: linear-gradient(135deg, var(--gold), var(--forest-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Form fields polish --- */
+.form-field input:focus,
+.form-field textarea:focus,
+.request-field input:focus,
+.request-field select:focus,
+.request-field textarea:focus {
+  box-shadow: 0 0 0 3px rgba(185, 160, 108, 0.2), inset 0 1px 2px rgba(18, 58, 42, 0.05);
+  border-color: rgba(185, 160, 108, 0.6);
+  outline: none;
+}
+
+/* --- Plot68 band improved --- */
+.plot68-band {
+  position: relative;
+  overflow: hidden;
+}
+/* Animated particles effect using radial gradients */
+.plot68-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(185, 160, 108, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(185, 160, 108, 0.08) 0%, transparent 25%);
+  animation: plot-glow 5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes plot-glow {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+/* --- Journey list step hover --- */
+.journey-list li {
+  position: relative;
+  transition: padding-left 200ms var(--ease-out-expo);
+}
+.journey-list li:hover {
+  padding-left: 8px;
+}
+
+/* --- Global image quality upgrades --- */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* --- Selection color polish --- */
+::selection {
+  background: rgba(18, 58, 42, 0.85);
+  color: var(--gold-pale);
+}
+
+/* --- Scrollbar improvements --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background: rgba(23, 61, 50, 0.28);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 61, 50, 0.45);
+  background-clip: content-box;
+}
+
+/* --- Focus visible improvements --- */
+:focus-visible {
+  outline-offset: 3px;
+  transition: outline-offset 150ms ease;
+}
+
+/* --- Responsive improvements --- */
+@media (max-width: 768px) {
+  .footer-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .footer-layout {
+    grid-template-columns: 1fr;
+  }
+  .footer-brand-block {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Reduced motion respect --- */
+@media (prefers-reduced-motion: reduce) {
+  .floating-whatsapp::before,
+  .home-hero::after,
+  .button-primary::after,
+  .plot68-band::before,
+  .horticulture-closing-band::before,
+  .home-crop-tile::after,
+  .closing-glow {
+    animation: none !important;
+  }
+  .footer-links a,
+  .footer-links a::before,
+  .pillar-card::after,
+  .about-why-card::before,
+  .contact-block-primary::before,
+  .produce-name-list li::before,
+  .machinery-product-list li::after,
+  .service-item,
+  .market-list article,
+  .agriculture-focus-row > img,
+  .focus-area-card,
+  .focus-area-card img,
+  .plot68-gallery figure,
+  .plot68-gallery img,
+  .home-crop-tile img,
+  .horticulture-market-cards article {
+    transition: none !important;
+  }
+}
+
+/* --- Home hero rail updated layout --- */
+.home-hero-rail {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between !important;
+  padding-bottom: 26px;
+}
+
+/* Hero dot button reset */
+.hero-dot {
+  appearance: none;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  padding: 0;
+  cursor: pointer;
+}
+.hero-dot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}

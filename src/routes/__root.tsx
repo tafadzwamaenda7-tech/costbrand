@@ -8,7 +8,7 @@ import {
   useLocation,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import {
@@ -166,6 +166,39 @@ function variantFor(target: HTMLElement) {
     if (target.matches(selector)) return variant;
   }
   return "rise";
+}
+
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+  const rafRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    const update = () => {
+      rafRef.current = undefined;
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      setProgress(scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0);
+    };
+    const schedule = () => {
+      if (rafRef.current !== undefined) return;
+      rafRef.current = window.requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", schedule, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      if (rafRef.current !== undefined) window.cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  return (
+    <div
+      className="scroll-progress"
+      aria-hidden="true"
+      style={{ transform: `scaleX(${progress / 100})` }}
+    />
+  );
 }
 
 function RootComponent() {

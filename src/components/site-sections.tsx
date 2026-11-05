@@ -1,4 +1,4 @@
-﻿import { Link } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -167,6 +167,7 @@ export function ProductsSection() {
       <div className="content-width">
         <div className="produce-layout">
           <div className="produce-intro">
+            <p className="section-eyebrow">Fresh Produce</p>
             <h2 className="display-heading">Good food begins with good growing.</h2>
             <p className="section-lead">
               Explore the produce categories we work with. Specific availability is discussed around
@@ -990,6 +991,7 @@ export function AboutSection() {
       </section>
       <section className="about-why section-pad">
         <div className="content-width">
+          <p className="section-eyebrow">Our Advantage</p>
           <h2 className="display-heading">Why Costbrand?</h2>
           <div className="about-why-grid">
             {whyCostbrand.map(({ icon: Icon, title, copy }) => (
