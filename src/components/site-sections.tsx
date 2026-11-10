@@ -12,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { assets } from "@/lib/site-assets";
 import { RequestForm } from "@/components/request-form";
+import { LocationMap } from "@/components/location-map";
+import { contactDetails } from "@/lib/contact-details";
 
 type SitePath =
   | "/"
@@ -1002,6 +1004,36 @@ export function AboutSection() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="about-location section-pad" aria-labelledby="about-location-title">
+        <div className="content-width about-location-layout">
+          <div className="about-location-copy">
+            <p className="section-eyebrow">Where we are</p>
+            <h2 className="display-heading" id="about-location-title">
+              Plot 68, Sable Bush Park.
+            </h2>
+            <p className="section-lead">
+              Costbrand is built on a Zimbabwean plot, not a mailing address. Our growing operation
+              sits at Plot 68 in Sable Bush Park, Chegutu, in Mashonaland West Province. It is where
+              our produce is grown, graded and prepared before it moves to market.
+            </p>
+            <dl className="about-location-facts">
+              <div>
+                <dt>Country</dt>
+                <dd>{contactDetails.address.country}</dd>
+              </div>
+              <div>
+                <dt>Province</dt>
+                <dd>{contactDetails.address.province}</dd>
+              </div>
+              <div>
+                <dt>Town</dt>
+                <dd>{contactDetails.address.town}</dd>
+              </div>
+            </dl>
+          </div>
+          <LocationMap />
         </div>
       </section>
       <section className="about-brand-statement">

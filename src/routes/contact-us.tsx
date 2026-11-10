@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { LocationMap } from "@/components/location-map";
+import { contactDetails } from "@/lib/contact-details";
 import { siteMeta } from "@/lib/site-meta";
 import { contactSchema } from "@/lib/contact-schema";
 import { submitEnquiry } from "@/lib/contact.functions";
@@ -18,6 +20,7 @@ export const Route = createFileRoute("/contact-us")({
 
 function ContactPage() {
   const submit = useServerFn(submitEnquiry);
+  const { address } = contactDetails;
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
   const [error, setError] = useState("");
 
@@ -212,6 +215,42 @@ function ContactPage() {
           </div>
         </div>
       </div>
+
+      <section className="contact-location" aria-labelledby="contact-location-title">
+        <div className="contact-location-layout">
+          <div className="contact-location-details">
+            <h2 id="contact-location-title">Reach us directly.</h2>
+            <div className="contact-detail-group">
+              <h3>Postal / physical address</h3>
+              <address>
+                {address.street}
+                <br />
+                {address.town}
+                <br />
+                {address.province}
+                <br />
+                {address.country}
+              </address>
+            </div>
+            <div className="contact-detail-group">
+              <h3>Mobile numbers</h3>
+              <ul className="contact-detail-numbers">
+                {contactDetails.numbers.map((number) => (
+                  <li key={number.tel}>
+                    <a href={`tel:${number.tel}`}>{number.label}</a>
+                    <span>{number.region}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="contact-detail-group">
+              <h3>Email</h3>
+              <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
+            </div>
+          </div>
+          <LocationMap />
+        </div>
+      </section>
 
       <div className="copyright-band">
         <p>Copyright {new Date().getFullYear()} Costbrand Private Limited. All Rights Reserved.</p>

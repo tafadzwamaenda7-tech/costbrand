@@ -1,8 +1,19 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { type RefObject, useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronDown, Mail, MessageCircle, Menu, Search, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Menu,
+  Phone,
+  Search,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { assets } from "@/lib/site-assets";
+import { contactDetails, primaryNumber, whatsappLink } from "@/lib/contact-details";
 
 const primaryLinks = [
   ["About Us", "/about"],
@@ -390,7 +401,10 @@ export function SiteHeader() {
         <p className="site-search-empty" aria-live="polite">
           Nothing found. Try 'machinery' or 'avocados'. Or{" "}
           <a
-            href={`https://wa.me/?text=${encodeURIComponent("Hi Costbrand, I couldn't find what I was looking for.")}`}
+            href={whatsappLink(
+              primaryNumber,
+              "Hi Costbrand, I couldn't find what I was looking for.",
+            )}
             target="_blank"
             rel="noreferrer"
           >
@@ -635,19 +649,40 @@ export function SiteHeader() {
                   </Link>
                 </Button>
                 <div className="mobile-nav-contact">
-                  <a
-                    href={`https://wa.me/?text=${encodeURIComponent(whatsappMessage(pathname))}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MessageCircle size={16} aria-hidden="true" />
-                    WhatsApp
-                  </a>
-                  <a href="mailto:info@costbrand.co.zw">
+                  {contactDetails.numbers.map((number) => (
+                    <a
+                      key={number.whatsapp}
+                      href={whatsappLink(number, whatsappMessage(pathname))}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MessageCircle size={16} aria-hidden="true" />
+                      WhatsApp · {number.region}
+                    </a>
+                  ))}
+                  <a href={`mailto:${contactDetails.email}`}>
                     <Mail size={16} aria-hidden="true" />
-                    info@costbrand.co.zw
+                    {contactDetails.email}
                   </a>
                 </div>
+                <div className="mobile-nav-contact">
+                  {contactDetails.numbers.map((number) => (
+                    <a key={number.tel} href={`tel:${number.tel}`}>
+                      <Phone size={16} aria-hidden="true" />
+                      {number.label}
+                    </a>
+                  ))}
+                </div>
+                <address className="mobile-nav-address">
+                  <MapPin size={16} aria-hidden="true" />
+                  <span>
+                    {contactDetails.address.street}
+                    <br />
+                    {contactDetails.address.town}, {contactDetails.address.province}
+                    <br />
+                    {contactDetails.address.country}
+                  </span>
+                </address>
                 <p>From Zimbabwe to the world.</p>
               </div>
             </div>
@@ -725,26 +760,49 @@ export function SiteFooter() {
 
 export function ContactBlock() {
   const pathname = useLocation().pathname;
-  const message = encodeURIComponent(whatsappMessage(pathname));
+  const message = whatsappMessage(pathname);
+  const { address, email, numbers } = contactDetails;
   return (
     <section className="site-contact-block" aria-labelledby="contact-block-title">
       <div className="content-width">
-        <h2 id="contact-block-title">Tell us what you need.</h2>
-        <div className="site-contact-actions">
-          <Link className="contact-block-primary" to="/contact-us">
-            Send us a message
-          </Link>
-          <a
-            className="contact-block-secondary"
-            href={`https://wa.me/?text=${message}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MessageCircle size={18} aria-hidden="true" /> WhatsApp
-          </a>
-          <a className="contact-block-secondary" href="mailto:info@costbrand.co.zw">
-            <Mail size={18} aria-hidden="true" /> Email
-          </a>
+        <div className="contact-block-intro">
+          <h2 id="contact-block-title">Tell us what you need.</h2>
+          <address className="contact-block-address">
+            {address.street}
+            <br />
+            {address.town}, {address.province}
+            <br />
+            {address.country}
+          </address>
+        </div>
+        <div className="contact-block-side">
+          <div className="site-contact-actions">
+            <Link className="contact-block-primary" to="/contact-us">
+              Send us a message
+            </Link>
+            {numbers.map((number) => (
+              <a
+                key={number.whatsapp}
+                className="contact-block-secondary"
+                href={whatsappLink(number, message)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle size={18} aria-hidden="true" /> WhatsApp · {number.region}
+              </a>
+            ))}
+            <a className="contact-block-secondary" href={`mailto:${email}`}>
+              <Mail size={18} aria-hidden="true" /> Email
+            </a>
+          </div>
+          <div className="contact-block-phones">
+            {numbers.map((number) => (
+              <a key={number.tel} href={`tel:${number.tel}`}>
+                <Phone size={15} aria-hidden="true" />
+                {number.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -753,14 +811,13 @@ export function ContactBlock() {
 
 export function FloatingWhatsApp() {
   const pathname = useLocation().pathname;
-  const message = encodeURIComponent(whatsappMessage(pathname));
   return (
     <a
       className="floating-whatsapp"
-      href={`https://wa.me/?text=${message}`}
+      href={whatsappLink(primaryNumber, whatsappMessage(pathname))}
       target="_blank"
       rel="noreferrer"
-      aria-label="Chat with Costbrand on WhatsApp"
+      aria-label={`Chat with Costbrand on WhatsApp in ${primaryNumber.region}`}
     >
       <MessageCircle size={19} aria-hidden="true" />
       <span>WhatsApp</span>
@@ -769,7 +826,6 @@ export function FloatingWhatsApp() {
 }
 
 export function NotFoundPage() {
-  const message = encodeURIComponent("Hi Costbrand, I couldn't find what I was looking for.");
   return (
     <main className="not-found-page">
       <div className="content-width not-found-inner">
@@ -787,7 +843,10 @@ export function NotFoundPage() {
           </Link>
           <a
             className="not-found-link"
-            href={`https://wa.me/?text=${message}`}
+            href={whatsappLink(
+              primaryNumber,
+              "Hi Costbrand, I couldn't find what I was looking for.",
+            )}
             target="_blank"
             rel="noreferrer"
           >

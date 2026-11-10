@@ -2,6 +2,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
+import { primaryNumber, whatsappLink } from "@/lib/contact-details";
 import { Button } from "@/components/ui/button";
 import { contactSchema } from "@/lib/contact-schema";
 import { submitEnquiry } from "@/lib/contact.functions";
@@ -200,7 +201,7 @@ export function RequestForm({ kind }: { kind: RequestKind }) {
     try {
       const response = await submit({ data: result.data });
       if (response.ok) {
-        setWhatsappUrl(`https://wa.me/?text=${encodeURIComponent(message)}`);
+        setWhatsappUrl(whatsappLink(primaryNumber, message));
         setStatus("success");
       } else {
         setError(response.message);
