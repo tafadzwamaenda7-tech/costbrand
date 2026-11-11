@@ -41,10 +41,18 @@ export function whatsappLink(number: ContactNumber, message: string) {
   return `https://wa.me/${number.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
-const { street, town, province, country } = contactDetails.address;
-const mapsQuery = `${street}, ${town}, ${province}, ${country}`;
+/**
+ * Google's own geocode of the postal address. Sable Bush Park is not in any public
+ * gazetteer, so this lands on the northern edge of Chegutu rather than the plot —
+ * replace with the farm's real GPS reading as soon as one is available.
+ */
+const farmCoordinates = "-18.1222,30.1515";
 
-/** Keyless Google Maps embed, pinned from the postal address text. */
-export const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed`;
+/**
+ * Keyless Google Maps embed, pinned by coordinate. Pinning by the address text
+ * instead renders the area with no marker at all, because the street does not
+ * resolve in Google's gazetteer.
+ */
+export const mapsEmbedUrl = `https://maps.google.com/maps?q=${farmCoordinates}&z=14&output=embed`;
 
-export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapsQuery)}`;
+export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${farmCoordinates}`;
