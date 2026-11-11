@@ -188,10 +188,8 @@
   justify-self: start;
 }
 .site-logo {
-  width: 137px;
-  height: 46px;
-  object-fit: contain;
-  object-position: left center;
+  width: auto;
+  height: 38px;
 }
 .desktop-nav {
   display: flex;
@@ -2362,10 +2360,8 @@
   max-width: 410px;
 }
 .footer-logo {
-  width: 142px;
-  height: 49px;
-  object-fit: contain;
-  object-position: left center;
+  width: auto;
+  height: 42px;
 }
 .footer-brand-block > p {
   max-width: 360px;
@@ -2432,10 +2428,8 @@
   color: white;
 }
 .contact-logo {
-  width: 155px;
-  height: 54px;
-  object-fit: contain;
-  object-position: left center;
+  width: auto;
+  height: 46px;
 }
 .contact-brand h2 {
   margin-top: 42px;
@@ -3008,7 +3002,7 @@ input[type="checkbox"] {
     font-size: 0.71rem;
   }
   .site-logo {
-    width: 118px;
+    height: 34px;
   }
 }
 @media (max-width: 930px) {
@@ -3081,9 +3075,8 @@ input[type="checkbox"] {
   }
   .mobile-nav-logo {
     display: block;
-    width: 118px;
-    height: 44px;
-    object-fit: contain;
+    width: auto;
+    height: 38px;
   }
   .menu-close {
     flex: 0 0 44px;
@@ -3501,8 +3494,7 @@ input[type="checkbox"] {
     padding-inline: 20px;
   }
   .site-logo {
-    width: 126px;
-    height: 43px;
+    height: 36px;
   }
   .home-hero {
     min-height: 650px;
@@ -3967,8 +3959,7 @@ input[type="checkbox"] {
     padding-inline: 12px;
   }
   .site-logo {
-    width: 108px;
-    height: 41px;
+    height: 32px;
   }
   .site-header-actions {
     gap: 4px;

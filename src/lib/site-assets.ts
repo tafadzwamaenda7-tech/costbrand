@@ -20,6 +20,8 @@ const plotPreparedExport = "/WhatsApp-Image-2026-04-30-at-17.09.47.jpeg";
 
 export const assets = {
   logo: "/genesis-logo.png",
+  /** Cream/green recolour — the standard mark disappears against the dark green surfaces. */
+  logoOnDark: "/genesis-logo-light.png",
   hero: peaHarvest,
   snapPeas: peaHarvest,
   packing: machineField,
@@ -41,7 +43,6 @@ export const assets = {
   supply: machineField,
   serve: fieldWide,
   future: fieldSunset,
-  footerLogo: "/genesis-logo.png",
   horticultureHero,
   aboutUs,
   machineryHero,

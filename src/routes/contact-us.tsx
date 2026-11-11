@@ -64,7 +64,7 @@ function ContactPage() {
       <div className="contact-reference-layout">
         <aside className="contact-brand">
           <Link to="/" className="brand-lockup brand-lockup-inverse" aria-label="Costbrand home">
-            <img className="contact-logo" src={assets.logo} alt="Costbrand" />
+            <img className="contact-logo" src={assets.logoOnDark} alt="Costbrand" />
           </Link>
           <h2>From farm to market. From Zimbabwe to the world.</h2>
           <div className="contact-brand-grid">

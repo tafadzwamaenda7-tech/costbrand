@@ -567,7 +567,7 @@ export function SiteHeader() {
           >
             <div className="mobile-nav-head">
               <Link to="/" aria-label="Costbrand home" onClick={closeMenu}>
-                <img className="site-logo mobile-nav-logo" src={assets.logo} alt="Costbrand" />
+                <img className="mobile-nav-logo" src={assets.logoOnDark} alt="Costbrand" />
               </Link>
               <Button
                 variant="ghost"
@@ -725,7 +725,7 @@ export function SiteFooter() {
       <div className="content-width footer-layout">
         <div className="footer-brand-block">
           <Link to="/" className="brand-lockup brand-lockup-inverse" aria-label="Costbrand home">
-            <img className="footer-logo" src={assets.footerLogo} alt="Costbrand" loading="lazy" />
+            <img className="footer-logo" src={assets.logoOnDark} alt="Costbrand" loading="lazy" />
           </Link>
           <p>
             From Farm to Market. From Zimbabwe to the World.
